@@ -24,6 +24,11 @@ var createNewExercise = true
 var totalRepAllowed = 50
 var totalPoundsAllowed = 1001
 
+//cardio stuff
+var totalCardioAllowed = 121
+var totalCaloriesAllowed = 2001
+
+
 //weekly stats
 var weekAbs = 0
 var weekChest = 0
@@ -51,17 +56,17 @@ func setWeekPart(bp: BodyPart, toAdd: Int){
     case .Abs:
         weekAbs += toAdd
     case .Chest:
-        weekAbs += toAdd
+        weekChest += toAdd
     case .Legs:
-        weekAbs += toAdd
+        weekLegs += toAdd
     case .Back:
-        weekAbs += toAdd
+        weekBack += toAdd
     case .Shoulders:
-        weekAbs += toAdd
+        weekShoulders += toAdd
     case .Arms:
-        weekAbs += toAdd
+        weekArms += toAdd
     case .None:
-        weekAbs += toAdd
+        weekOther += toAdd
     }
 }
 
@@ -70,17 +75,17 @@ func removeWeekPart(bp: BodyPart, toAdd: Int){
     case .Abs:
         weekAbs -= toAdd
     case .Chest:
-        weekAbs -= toAdd
+        weekChest -= toAdd
     case .Legs:
-        weekAbs -= toAdd
+        weekBack -= toAdd
     case .Back:
-        weekAbs -= toAdd
+        weekBack -= toAdd
     case .Shoulders:
-        weekAbs -= toAdd
+        weekShoulders -= toAdd
     case .Arms:
-        weekAbs -= toAdd
+        weekArms -= toAdd
     case .None:
-        weekAbs -= toAdd
+        weekOther -= toAdd
     }
 }
 
@@ -123,11 +128,34 @@ let greatBack = UIImage(named: "Back-50.png")
 let greatShoulders = UIImage(named: "Shoulders-50.png")
 let greatArms = UIImage(named: "Flex Biceps-50 (1).png")
 
+//----------------------------------------------test stuff ---------------------------------------
 
-func getOneRepMax(_exercise: ExerciseObject) -> Int {
-    var oneRepMax = 0
-    oneRepMax = _exercise.getWeightPushed() * (36 / (37 - _exercise.getReps()))
-    return oneRepMax
+var testHuh = 0
+
+func addTestStuff() {
+    //test workout objects.
+    var arms : WorkoutObject = WorkoutObject(_name: "Arms")
+    var curls : ExerciseObject = ExerciseObject(_name: "Curls")
+    var extentions : ExerciseObject = ExerciseObject(_name: "Extentions")
+    curls.setBodyPart(.Arms)
+    extentions.setBodyPart(.Arms)
+    arms.setExercise(curls)
+    arms.setExercise(extentions)
+    var legs : WorkoutObject = WorkoutObject(_name: "Legs")
+    var squat : ExerciseObject = ExerciseObject(_name: "Squats")
+    var lunges : ExerciseObject = ExerciseObject(_name: "Lunges")
+    legs.setExercise(squat)
+    legs.setExercise(lunges)
+    
+    listOfWorkouts.addObject(arms.newCopy())
+    listOfWorkouts.addObject(legs.newCopy())
+    listOfExercises.addObject(curls.newCopy())
+    listOfExercises.addObject(extentions.newCopy())
+    listOfExercises.addObject(squat.newCopy())
+    listOfExercises.addObject(lunges.newCopy())
+    
+    pastWorkouts.setObject(arms, forKey: arms.getName())
+    pastWorkouts.setObject(legs, forKey: legs.getName())
 }
 
 //----------------------------------------------Objects-------------------------------------------
@@ -186,7 +214,10 @@ class WorkoutObject {
     }
     func newCopy() -> WorkoutObject {
         var newW : WorkoutObject = WorkoutObject(_name: name)
-        newW.exercises = exercises
+        for (var i = 0 ; i < exercises.count; i++) {
+            var e : ExerciseObject = exercises[i]
+            newW.exercises.append(e.newCopy())
+        }
         return newW
     }
     func addToTotalWeight(weight: Int) {
@@ -200,6 +231,22 @@ class WorkoutObject {
             totalWeight += e.getWeightPushed()
         }
         return totalWeight
+    }
+    func getTotalSets() -> Int {
+        var tsets = 0
+        for e in exercises {
+            tsets += e.sets.count
+        }
+        return tsets
+    }
+    func getTotalReps() -> Int {
+        var treps = 0
+        for e in exercises {
+            for s in e.sets {
+                treps += s.getReps()
+            }
+        }
+        return treps
     }
 }
 
@@ -246,7 +293,12 @@ class ExerciseObject {
         bodyPart = _bodyPart
     }
     func getOneRepMax() -> Int {
-        return oneRepMax
+        let a = 37 - self.getReps()
+        let b : Double = 36 / Double(a)
+        if (totalReps == 0 ) {return 0}
+        let c = weightPushed / totalReps
+        let d = Int(1.0 + (0.025 * Double(totalReps)))
+        return c * d
     }
     func setOneRepMax(_oneRepMax: Int) {
         oneRepMax = _oneRepMax
@@ -264,6 +316,7 @@ class ExerciseObject {
         sets = _sets
     }
     func getReps() -> Int {
+        totalReps = 0
         for s in sets {
             totalReps += s.getReps()
         }

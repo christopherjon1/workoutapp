@@ -15,6 +15,9 @@
 		8C0997781AE946B000D91A86 /* WorkoutNamesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0997771AE946B000D91A86 /* WorkoutNamesTableView.swift */; };
 		8C09977B1AEB1B1400D91A86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0997791AEB1B1300D91A86 /* Main.storyboard */; };
 		8C09977D1AEB6CA500D91A86 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09977C1AEB6CA500D91A86 /* FinishedViewController.swift */; };
+		8C09977F1AEEAE2C00D91A86 /* OneRepMaxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09977E1AEEAE2C00D91A86 /* OneRepMaxTableViewController.swift */; };
+		8C0997811AEEDC8700D91A86 /* CardioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0997801AEEDC8700D91A86 /* CardioViewController.swift */; };
+		8C0997831AEEE84400D91A86 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 8C0997821AEEE84400D91A86 /* ReadMe */; };
 		8C4F56971AE1B7FC002C490A /* ExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F56961AE1B7FC002C490A /* ExerciseTableViewController.swift */; };
 		8C5209681ADF70010010B8FF /* Home-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C5209671ADF70010010B8FF /* Home-50.png */; };
 		8C5209711ADFF9000010B8FF /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C52096C1ADFF9000010B8FF /* JBBarChartView.m */; };
@@ -78,6 +81,9 @@
 		8C0997771AE946B000D91A86 /* WorkoutNamesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutNamesTableView.swift; sourceTree = "<group>"; };
 		8C09977A1AEB1B1400D91A86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C09977C1AEB6CA500D91A86 /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
+		8C09977E1AEEAE2C00D91A86 /* OneRepMaxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRepMaxTableViewController.swift; sourceTree = "<group>"; };
+		8C0997801AEEDC8700D91A86 /* CardioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardioViewController.swift; sourceTree = "<group>"; };
+		8C0997821AEEE84400D91A86 /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		8C4F56961AE1B7FC002C490A /* ExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewController.swift; sourceTree = "<group>"; };
 		8C5209671ADF70010010B8FF /* Home-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-50.png"; sourceTree = "<group>"; };
 		8C52096B1ADFF9000010B8FF /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
@@ -201,12 +207,15 @@
 				8C09976B1AE7518C00D91A86 /* SetTableViewController.swift */,
 				8C0997711AE761CC00D91A86 /* RepsPoundsTableViewController.swift */,
 				8C09977C1AEB6CA500D91A86 /* FinishedViewController.swift */,
+				8C09977E1AEEAE2C00D91A86 /* OneRepMaxTableViewController.swift */,
+				8C0997801AEEDC8700D91A86 /* CardioViewController.swift */,
 				8CC8EA861ADE0DD100593A61 /* Model.swift */,
 				8CC8EA841ADE0B6600593A61 /* Temp.swift */,
 				8C0997791AEB1B1300D91A86 /* Main.storyboard */,
 				8CC8EA2E1AD34FE100593A61 /* Images.xcassets */,
 				8CC8EA301AD34FE100593A61 /* LaunchScreen.xib */,
 				8CC8EA251AD34FE100593A61 /* Supporting Files */,
+				8C0997821AEEE84400D91A86 /* ReadMe */,
 			);
 			path = WorkoutTracker;
 			sourceTree = "<group>";
@@ -359,6 +368,7 @@
 				8CC8EA601ADD66B900593A61 /* Torso-50.png in Resources */,
 				8CC8EA691ADD6F4700593A61 /* Flex Biceps-50.png in Resources */,
 				8CC8EA891ADE10A200593A61 /* Back Muscles-50.png in Resources */,
+				8C0997831AEEE84400D91A86 /* ReadMe in Resources */,
 				8CC8EA651ADD6F3700593A61 /* Back-50.png in Resources */,
 				8CC8EA831ADD9B3000593A61 /* Help-50.png in Resources */,
 				8CC8EA7B1ADD6F5D00593A61 /* Leg-50.png in Resources */,
@@ -413,6 +423,7 @@
 				8C5209721ADFF9000010B8FF /* JBChartView.m in Sources */,
 				8C5209711ADFF9000010B8FF /* JBBarChartView.m in Sources */,
 				8C09976C1AE7518C00D91A86 /* SetTableViewController.swift in Sources */,
+				8C0997811AEEDC8700D91A86 /* CardioViewController.swift in Sources */,
 				8C4F56971AE1B7FC002C490A /* ExerciseTableViewController.swift in Sources */,
 				8C92E1641AE6DE3C00C9FC3B /* ExerciseViewController.swift in Sources */,
 				8C0997721AE761CC00D91A86 /* RepsPoundsTableViewController.swift in Sources */,
@@ -420,6 +431,7 @@
 				8C5209731ADFF9000010B8FF /* JBLineChartView.m in Sources */,
 				8CC8EA281AD34FE100593A61 /* AppDelegate.swift in Sources */,
 				8CC8EA871ADE0DD100593A61 /* Model.swift in Sources */,
+				8C09977F1AEEAE2C00D91A86 /* OneRepMaxTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

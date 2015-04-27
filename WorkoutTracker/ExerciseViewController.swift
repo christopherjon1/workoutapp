@@ -172,6 +172,18 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
         timeButton.addTarget(self, action: "startCounter", forControlEvents: UIControlEvents.TouchUpInside)
         exerciseNameLabel.addTarget(self, action: "changeName", forControlEvents: UIControlEvents.TouchUpInside)
         addSetButton.addTarget(self, action: "addSet", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        //style for buttons
+        exerciseNameLabel.layer.borderWidth = 0.5
+        exerciseNameLabel.layer.borderColor = UIColor.lightGrayColor().CGColor
+        exerciseNameLabel.layer.cornerRadius = 10.0
+        exerciseNameLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(exerciseNameLabel)
+        addSetButton.layer.borderWidth = 0.5
+        addSetButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        addSetButton.layer.cornerRadius = 10.0
+        addSetButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(addSetButton)
     }
     
     func addSet() {

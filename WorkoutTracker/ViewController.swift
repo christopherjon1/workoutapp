@@ -63,7 +63,7 @@ class ViewController: UIViewController {
             
             workoutView = segue.destinationViewController as! WorkoutViewController
             //start new workout with no initial name
-            let workout = selectedWorkout
+            let workout = selectedWorkout.newCopy()
             
             //set start time
             let date = NSDate()
@@ -83,38 +83,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if testHuh == 0 {
+            addTestStuff()
+            testHuh = 1
+        }
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //test workout objects.
-        var arms : WorkoutObject = WorkoutObject(_name: "Arms")
-        var curls : ExerciseObject = ExerciseObject(_name: "Curls")
-        var extentions : ExerciseObject = ExerciseObject(_name: "Extentions")
-        curls.setBodyPart(.Arms)
-        extentions.setBodyPart(.Arms)
-        arms.setExercise(curls)
-        arms.setExercise(extentions)
-        var legs : WorkoutObject = WorkoutObject(_name: "Legs")
-        var squat : ExerciseObject = ExerciseObject(_name: "Squats")
-        var lunges : ExerciseObject = ExerciseObject(_name: "Lunges")
-        legs.setExercise(squat)
-        legs.setExercise(lunges)
-        
-        listOfWorkouts.addObject(arms.newCopy())
-        listOfWorkouts.addObject(legs.newCopy())
-        listOfExercises.addObject(curls.newCopy())
-        listOfExercises.addObject(extentions.newCopy())
-        listOfExercises.addObject(squat.newCopy())
-        listOfExercises.addObject(lunges.newCopy())
-        
-        println(listOfWorkouts[0])
-        
-        pastWorkouts.setObject(arms, forKey: arms.getName())
-        pastWorkouts.setObject(legs, forKey: legs.getName())
         
         self.navigationController?.hidesBarsWhenKeyboardAppears = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         
-        navigationController!.navigationBar.barTintColor = UIColor(red: 200/255, green: 200/255, blue: 1.0, alpha: 0.5)
+        navigationController!.navigationBar.barTintColor = UIColor(red: 80/255, green: 95/255, blue: 205/255, alpha: 0.5)
         
         startButton.layer.borderWidth = 0.5
         startButton.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -151,11 +130,11 @@ class ViewController: UIViewController {
         
         //good work images set (if it was worked out but not as good as the previous week)
         if ( weekAbs <= preWeekAbs && weekAbs != 0) { absButton.setImage(goodAbs, forState: UIControlState.Normal) }
-        if ( weekChest <= preWeekChest && weekAbs != 0 ) { chestButton.setImage(goodChest, forState: UIControlState.Normal) }
-        if ( weekLegs <= preWeekLegs && weekAbs != 0 ) { legsButton.setImage(goodLegs, forState: UIControlState.Normal) }
-        if ( weekBack <= preWeekBack && weekAbs != 0 ) { backButton.setImage(goodBack, forState: UIControlState.Normal) }
-        if ( weekShoulders <= preWeekShoulders && weekAbs != 0 ) { shouldersButton.setImage(goodShoulders, forState: UIControlState.Normal) }
-        if ( weekArms <= preWeekArms && weekAbs != 0 ) { armsButton.setImage(goodArms, forState: UIControlState.Normal) }
+        if ( weekChest <= preWeekChest && weekChest != 0 ) { chestButton.setImage(goodChest, forState: UIControlState.Normal) }
+        if ( weekLegs <= preWeekLegs && weekLegs != 0 ) { legsButton.setImage(goodLegs, forState: UIControlState.Normal) }
+        if ( weekBack <= preWeekBack && weekBack != 0 ) { backButton.setImage(goodBack, forState: UIControlState.Normal) }
+        if ( weekShoulders <= preWeekShoulders && weekShoulders != 0 ) { shouldersButton.setImage(goodShoulders, forState: UIControlState.Normal) }
+        if ( weekArms <= preWeekArms && weekArms != 0 ) { armsButton.setImage(goodArms, forState: UIControlState.Normal) }
 
         //great work images set (if it was worked out and was better than previous week)
         if ( weekAbs > preWeekAbs ) { absButton.setImage(greatAbs, forState: UIControlState.Normal) }

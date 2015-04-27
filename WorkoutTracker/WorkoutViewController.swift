@@ -18,12 +18,15 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var notesTextArea: UITextField!
     
     @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var oldWorkout: UIPickerView!
+    
     var workout : WorkoutObject?
     var oldEx : ExerciseObject = listOfExercises[0] as! ExerciseObject
-
+    
     weak var exerciseTable: ExerciseTableViewController!
     weak var oldExerciseTable: OldExerciseTableViewController!
+    weak var finishedVC: FinishedViewController!
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if ( segue.identifier == "exerciseSegue" ) {
@@ -108,15 +111,31 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         //set the title to the workout name
         self.title = workout!.getName()
         
-        workoutName.borderStyle = UITextBorderStyle.RoundedRect
-        
+        //sett the date
         let date = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .LongStyle
-        
         dateText.text = formatter.stringFromDate(date)
         
         workoutNameLabel.addTarget(self, action: "changeName", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        //style for buttons
+        workoutNameLabel.layer.borderWidth = 0.5
+        workoutNameLabel.layer.borderColor = UIColor.lightGrayColor().CGColor
+        workoutNameLabel.layer.cornerRadius = 10.0
+        workoutNameLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(workoutNameLabel)
+        goButton.layer.borderWidth = 0.5
+        goButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        goButton.layer.cornerRadius = 10.0
+        goButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(goButton)
+        finishButton.layer.borderWidth = 0.5
+        finishButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        finishButton.layer.cornerRadius = 10.0
+        finishButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(finishButton)
+        workoutName.borderStyle = UITextBorderStyle.RoundedRect
     }
     
     func changeName() {

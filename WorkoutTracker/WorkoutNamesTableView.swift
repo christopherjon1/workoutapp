@@ -24,8 +24,21 @@ class WorkoutNamesTableViewController: UITableViewController {
         if ( segue.identifier == "toWorkout" ) {
             if let destination = segue.destinationViewController as? WorkoutViewController {
                 if let index = tableView.indexPathForSelectedRow()?.row {
-                    var work = listOfWorkouts[index] as! WorkoutObject
-                    destination.workout = work.newCopy()
+                    var work = (listOfWorkouts[index] as! WorkoutObject).newCopy()
+                    
+                    //set start time
+                    let date = NSDate()
+                    let formatter = NSDateFormatter()
+                    formatter.timeStyle = .ShortStyle
+                    work.setStartTime(formatter.stringFromDate(date))
+                    
+                    //set date
+                    let date2 = NSDate()
+                    let formatter2 = NSDateFormatter()
+                    formatter2.dateStyle = .ShortStyle
+                    work.setDate(formatter2.stringFromDate(date2))
+                    
+                    destination.workout = work
                 }
             }
         }
