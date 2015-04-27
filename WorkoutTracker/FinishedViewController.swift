@@ -14,6 +14,8 @@ class FinishedViewController: UIViewController {
     @IBOutlet weak var workoutButton: UIButton!
     @IBOutlet weak var statsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
+    
+    var workout : WorkoutObject!
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -36,6 +36,8 @@ class SetTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             //line to remove from exercise
+            var set = exercise.sets[indexPath.row]
+            removeWeekPart(exercise.getBodyPart(), set.getReps() * set.getWeight())
             exercise.sets.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }

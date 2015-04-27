@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var exerciseName: UITextField!
     @IBOutlet weak var exerciseNameLabel: UIButton!
-    
     
     @IBOutlet weak var addSetButton: UIButton!
     
@@ -22,8 +21,12 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var counter = 0
     var startPauseStop = 0
     
+    var reps = 1
+    var pounds = 0
+    
     @IBOutlet weak var bodyPartLabel: UIPickerView!
     //    @IBOutlet weak var bodyPartLabel: UILabel!
+    @IBOutlet weak var repPounds: UIPickerView!
     
     var exercise : ExerciseObject?
     var bodyPartTable : BodyPartTableViewController!
@@ -35,60 +38,114 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     // returns the number of 'columns' to display.
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
-        return 2
+        if (pickerView == self.bodyPartLabel){
+            return 2
+        } else {
+            return 4
+        }
     }
     
     // returns the # of rows in each component..
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        if (component == 1) {
-            return BodyPart.count
+        if (pickerView == self.bodyPartLabel){
+            if (component == 1) {
+                return BodyPart.count
+            } else {
+                return 1
+            }
         } else {
-            return 1
+            if (component == 0) {
+                return totalRepAllowed
+            } else if (component == 1) {
+                return 1
+            } else if (component == 2) {
+                return totalPoundsAllowed
+            } else {
+                return 1
+            }
         }
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        if (component == 1) {
-            return getValueOfBodyPartAtIndex(row)
+        if (pickerView == self.bodyPartLabel){
+            if (component == 1) {
+                return getValueOfBodyPartAtIndex(row)
+            } else {
+                return "Select Body Part"
+            }
         } else {
-            return "Select Body Part"
+            if (component == 0) {
+                return String( row + 1 )
+            } else if (component == 1) {
+                return "Reps"
+            } else if (component == 2) {
+                return String( row )
+            } else {
+                return "Lbs"
+            }
         }
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        if (component == 1) {
-            exercise!.setBodyPart( getValueOfBodyPartAtIndex( row ) )
+        if (pickerView == self.bodyPartLabel){
+            if (component == 1) {
+                exercise!.setBodyPart( getValueOfBodyPartAtIndex( row ) )
+            }
+        } else {
+            if (component == 0) {
+                reps = row + 1
+            } else if (component == 2) {
+                pounds = row
+            }
         }
     }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
-        if (component == 1) {
-            let pickerLabel = UILabel()
-            let titleData = getValueOfBodyPartAtIndex(row) as String
-            let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
-            pickerLabel.attributedText = myTitle
-            return pickerLabel
+        if (pickerView == self.bodyPartLabel){
+            if (component == 1) {
+                let pickerLabel = UILabel()
+                let titleData = getValueOfBodyPartAtIndex(row) as String
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+                pickerLabel.attributedText = myTitle
+                return pickerLabel
+            } else {
+                let pickerLabel = UILabel()
+                let titleData = "Select Body Part"
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+                pickerLabel.attributedText = myTitle
+                return pickerLabel
+            }
         } else {
-            let pickerLabel = UILabel()
-            let titleData = "Select Body Part"
-            let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
-            pickerLabel.attributedText = myTitle
-            return pickerLabel
+            if (component == 0) {
+                let pickerLabel = UILabel()
+                let titleData = String(row + 1)
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+                pickerLabel.attributedText = myTitle
+                return pickerLabel
+            } else if (component == 1) {
+                let pickerLabel = UILabel()
+                let titleData = "Reps"
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+                pickerLabel.attributedText = myTitle
+                return pickerLabel
+            } else if (component == 2) {
+                let pickerLabel = UILabel()
+                let titleData = String(row)
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+                pickerLabel.attributedText = myTitle
+                return pickerLabel
+            } else {
+                let pickerLabel = UILabel()
+                let titleData = "Lbs"
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+                pickerLabel.attributedText = myTitle
+                return pickerLabel
+            }
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if ( segue.identifier == "bodyPartSegue" ) {
-            bodyPartTable = segue.destinationViewController as! BodyPartTableViewController
-            bodyPartTable.exercise = exercise
-        }
-        if ( segue.identifier == "poundsSegue" ) {
-            poundTable = segue.destinationViewController as! PoundsTableViewController
-        }
-        if ( segue.identifier == "repsSegue" ) {
-            repTable = segue.destinationViewController as! RepsTableViewController
-        }
         if ( segue.identifier == "setSegue" ) {
             setTable = segue.destinationViewController as! SetTableViewController
             setTable.exercise = exercise!
@@ -105,6 +162,11 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
         self.bodyPartLabel.delegate = self
         self.bodyPartLabel.selectRow(getIndexOfBodyPart(exercise!.getBodyPart()), inComponent: 1, animated: false)
         
+        self.repPounds.dataSource = self
+        self.repPounds.delegate = self
+        
+        self.exerciseName.delegate = self
+        
         exerciseName.borderStyle = UITextBorderStyle.RoundedRect
         
         timeButton.addTarget(self, action: "startCounter", forControlEvents: UIControlEvents.TouchUpInside)
@@ -114,8 +176,9 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func addSet() {
         var set :SetObject = SetObject()
-        set.setReps(repTable.reps)
-        set.setWeight(poundTable.pounds)
+        set.setReps(reps)
+        set.setWeight(pounds)
+        setWeekPart(exercise!.getBodyPart(), reps * pounds)
         exercise!.sets.append(set)
         setTable.tableView.reloadData()
     }
@@ -126,11 +189,6 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
         exerciseName.text = ""
         exerciseName.resignFirstResponder()
         self.navigationController?.navigationBarHidden = false
-    }
-    
-    func setBodyPart() {
-        //        bodyPartLabel.text = getValueOfBodyPartAtIndex( bodyPartTable.selectedIndex )
-        exercise!.setBodyPart(getValueOfBodyPartAtIndex( bodyPartTable.selectedIndex ))
     }
     
     func updateCounter() {
@@ -145,6 +203,7 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
     func startCounter() {
         switch startPauseStop {
         case 0:
+            updateCounter()
             time = NSTimer.scheduledTimerWithTimeInterval(1.0, target:self, selector: Selector("updateCounter"), userInfo: nil, repeats: true)
         case 1:
             time.invalidate()
@@ -166,5 +225,10 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        exerciseName.resignFirstResponder()
+        changeName()
+        return true
+    }
 }
 

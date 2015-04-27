@@ -31,18 +31,58 @@ var weekLegs = 0
 var weekBack = 0
 var weekShoulders = 0
 var weekArms = 0
+var weekOther = 0
 var weekCardio = 0
 var weekCalories = 0
 
 //previous weekly stats
-var preWeekAbs = 0
-var preWeekChest = 0
-var preWeekLegs = 0
-var preWeekBack = 0
-var preWeekShoulders = 0
-var preWeekArms = 0
+var preWeekAbs = 10
+var preWeekChest = 10
+var preWeekLegs = 50
+var preWeekBack = 120
+var preWeekShoulders = 120
+var preWeekArms = 30
+var preWeekOther = 50
 var preWeekCardio = 0
 var preWeekCalories = 0
+
+func setWeekPart(bp: BodyPart, toAdd: Int){
+    switch bp {
+    case .Abs:
+        weekAbs += toAdd
+    case .Chest:
+        weekAbs += toAdd
+    case .Legs:
+        weekAbs += toAdd
+    case .Back:
+        weekAbs += toAdd
+    case .Shoulders:
+        weekAbs += toAdd
+    case .Arms:
+        weekAbs += toAdd
+    case .None:
+        weekAbs += toAdd
+    }
+}
+
+func removeWeekPart(bp: BodyPart, toAdd: Int){
+    switch bp {
+    case .Abs:
+        weekAbs -= toAdd
+    case .Chest:
+        weekAbs -= toAdd
+    case .Legs:
+        weekAbs -= toAdd
+    case .Back:
+        weekAbs -= toAdd
+    case .Shoulders:
+        weekAbs -= toAdd
+    case .Arms:
+        weekAbs -= toAdd
+    case .None:
+        weekAbs -= toAdd
+    }
+}
 
 //other stats, an array of past stats
 var statAbs : [Int] = []
@@ -83,6 +123,15 @@ let greatBack = UIImage(named: "Back-50.png")
 let greatShoulders = UIImage(named: "Shoulders-50.png")
 let greatArms = UIImage(named: "Flex Biceps-50 (1).png")
 
+
+func getOneRepMax(_exercise: ExerciseObject) -> Int {
+    var oneRepMax = 0
+    oneRepMax = _exercise.getWeightPushed() * (36 / (37 - _exercise.getReps()))
+    return oneRepMax
+}
+
+//----------------------------------------------Objects-------------------------------------------
+
 //workout object
 class WorkoutObject {
     private var name : String
@@ -91,7 +140,7 @@ class WorkoutObject {
     private var date : String = ""
     private var startTime : String = ""
     private var endTime : String = ""
-
+    private var totalWeight = 0
     
     init(_name : String) {
         name = _name
@@ -136,9 +185,21 @@ class WorkoutObject {
         return endTime
     }
     func newCopy() -> WorkoutObject {
-        var new : WorkoutObject = WorkoutObject(_name: name)
-        new.exercises = exercises
-        return new
+        var newW : WorkoutObject = WorkoutObject(_name: name)
+        newW.exercises = exercises
+        return newW
+    }
+    func addToTotalWeight(weight: Int) {
+        totalWeight += weight
+    }
+    func removeFromTotalWeight(weight: Int) {
+        totalWeight -= weight
+    }
+    func getTotalWeight() -> Int {
+        for e in exercises {
+            totalWeight += e.getWeightPushed()
+        }
+        return totalWeight
     }
 }
 
@@ -171,6 +232,7 @@ class ExerciseObject {
     private var bodyPart : BodyPart = .None
     var sets : [SetObject] = []
     private var weightPushed = 0
+    private var totalReps = 0
     private var oneRepMax = 0
     
     init(_name : String) {
@@ -201,18 +263,32 @@ class ExerciseObject {
     func setSets(_sets: [SetObject]) {
         sets = _sets
     }
+    func getReps() -> Int {
+        for s in sets {
+            totalReps += s.getReps()
+        }
+        return totalReps
+    }
+    func setReps(_reps: Int) {
+        totalReps = _reps
+    }
     func getWeightPushed() -> Int {
+        for s in sets {
+            weightPushed += s.getWeight() * s.getReps()
+        }
         return weightPushed
     }
     func setWeightPushed(_weightPushed: Int) {
         weightPushed = _weightPushed
     }
     func newCopy() -> ExerciseObject {
-        var new : ExerciseObject = ExerciseObject(_name: name)
-        new.bodyPart = bodyPart
-        return new
+        var newEx : ExerciseObject = ExerciseObject(_name: name)
+        newEx.bodyPart = bodyPart
+        return newEx
     }
 }
+
+//-------------------------------------Enum Body Part Stuff---------------------------------------------------
 
 //enum of body parts that could be used
 enum BodyPart {
@@ -248,7 +324,7 @@ func getIndexOfBodyPart(Index: BodyPart) -> Int {
 }
 
 func getValueOfBodyPartAtIndex(Index: Int) -> BodyPart {
-
+    
     switch Index {
     case 1:
         return .Abs
@@ -268,7 +344,7 @@ func getValueOfBodyPartAtIndex(Index: Int) -> BodyPart {
 }
 
 func getValueOfBodyPartAtIndex(Index: Int) -> String {
-
+    
     var value = ""
     
     switch Index {
