@@ -7,12 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C09976C1AE7518C00D91A86 /* SetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09976B1AE7518C00D91A86 /* SetTableViewController.swift */; };
+		8C09976E1AE7535F00D91A86 /* BodyPartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09976D1AE7535F00D91A86 /* BodyPartTableViewController.swift */; };
+		8C0997701AE75FAB00D91A86 /* Stopwatch Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C09976F1AE75FAB00D91A86 /* Stopwatch Filled-50.png */; };
+		8C0997721AE761CC00D91A86 /* RepsPoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0997711AE761CC00D91A86 /* RepsPoundsTableViewController.swift */; };
+		8C0997761AE8AD9900D91A86 /* paris.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C0997751AE8AD9900D91A86 /* paris.jpg */; };
+		8C0997781AE946B000D91A86 /* WorkoutNamesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0997771AE946B000D91A86 /* WorkoutNamesTableView.swift */; };
+		8C09977B1AEB1B1400D91A86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0997791AEB1B1300D91A86 /* Main.storyboard */; };
+		8C09977D1AEB6CA500D91A86 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09977C1AEB6CA500D91A86 /* FinishedViewController.swift */; };
+		8C4F56971AE1B7FC002C490A /* ExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F56961AE1B7FC002C490A /* ExerciseTableViewController.swift */; };
+		8C5209681ADF70010010B8FF /* Home-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C5209671ADF70010010B8FF /* Home-50.png */; };
+		8C5209711ADFF9000010B8FF /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C52096C1ADFF9000010B8FF /* JBBarChartView.m */; };
+		8C5209721ADFF9000010B8FF /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C52096E1ADFF9000010B8FF /* JBChartView.m */; };
+		8C5209731ADFF9000010B8FF /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5209701ADFF9000010B8FF /* JBLineChartView.m */; };
+		8C5209751AE017AC0010B8FF /* Plus-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C5209741AE017AC0010B8FF /* Plus-50.png */; };
+		8C52097B1AE034CD0010B8FF /* images-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C52097A1AE034CD0010B8FF /* images-1.jpg */; };
+		8C92E1641AE6DE3C00C9FC3B /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C92E1631AE6DE3C00C9FC3B /* ExerciseViewController.swift */; };
 		8CC8EA281AD34FE100593A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8EA271AD34FE100593A61 /* AppDelegate.swift */; };
 		8CC8EA2A1AD34FE100593A61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8EA291AD34FE100593A61 /* ViewController.swift */; };
-		8CC8EA2D1AD34FE100593A61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA2B1AD34FE100593A61 /* Main.storyboard */; };
 		8CC8EA2F1AD34FE100593A61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA2E1AD34FE100593A61 /* Images.xcassets */; };
 		8CC8EA321AD34FE100593A61 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA301AD34FE100593A61 /* LaunchScreen.xib */; };
 		8CC8EA3E1AD34FE100593A61 /* WorkoutTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8EA3D1AD34FE100593A61 /* WorkoutTrackerTests.swift */; };
+		8CC8EA591ADC874400593A61 /* Dumbbell-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA551ADC874400593A61 /* Dumbbell-50.png */; };
+		8CC8EA5A1ADC874400593A61 /* Settings-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA561ADC874400593A61 /* Settings-50.png */; };
+		8CC8EA5B1ADC874400593A61 /* Start-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA571ADC874400593A61 /* Start-50.png */; };
+		8CC8EA5C1ADC874400593A61 /* Line Chart-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA581ADC874400593A61 /* Line Chart-50.png */; };
+		8CC8EA601ADD66B900593A61 /* Torso-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA5D1ADD66B900593A61 /* Torso-50.png */; };
+		8CC8EA611ADD66B900593A61 /* Prelum-50 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA5E1ADD66B900593A61 /* Prelum-50 (1).png */; };
+		8CC8EA621ADD66B900593A61 /* Prelum-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA5F1ADD66B900593A61 /* Prelum-50.png */; };
+		8CC8EA651ADD6F3700593A61 /* Back-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA641ADD6F3700593A61 /* Back-50.png */; };
+		8CC8EA681ADD6F4700593A61 /* Flex Biceps-50 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA661ADD6F4700593A61 /* Flex Biceps-50 (1).png */; };
+		8CC8EA691ADD6F4700593A61 /* Flex Biceps-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA671ADD6F4700593A61 /* Flex Biceps-50.png */; };
+		8CC8EA731ADD6F5D00593A61 /* Medical Heart-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA6A1ADD6F5D00593A61 /* Medical Heart-50.png */; };
+		8CC8EA741ADD6F5D00593A61 /* Shoulders-50 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA6B1ADD6F5D00593A61 /* Shoulders-50 (1).png */; };
+		8CC8EA751ADD6F5D00593A61 /* Shoulders-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA6C1ADD6F5D00593A61 /* Shoulders-50.png */; };
+		8CC8EA761ADD6F5D00593A61 /* Neck-50 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA6D1ADD6F5D00593A61 /* Neck-50 (1).png */; };
+		8CC8EA771ADD6F5D00593A61 /* Neck-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA6E1ADD6F5D00593A61 /* Neck-50.png */; };
+		8CC8EA781ADD6F5D00593A61 /* Chest-50 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA6F1ADD6F5D00593A61 /* Chest-50 (1).png */; };
+		8CC8EA791ADD6F5D00593A61 /* Chest-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA701ADD6F5D00593A61 /* Chest-50.png */; };
+		8CC8EA7A1ADD6F5D00593A61 /* Leg-501.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA711ADD6F5D00593A61 /* Leg-501.png */; };
+		8CC8EA7B1ADD6F5D00593A61 /* Leg-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA721ADD6F5D00593A61 /* Leg-50.png */; };
+		8CC8EA7D1ADD7F3A00593A61 /* Full Moon-50 copy 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA7C1ADD7F3A00593A61 /* Full Moon-50 copy 2.png */; };
+		8CC8EA7F1ADD7F4100593A61 /* Full Moon-50 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA7E1ADD7F4100593A61 /* Full Moon-50 copy.png */; };
+		8CC8EA811ADD7F4600593A61 /* Full Moon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA801ADD7F4600593A61 /* Full Moon-50.png */; };
+		8CC8EA831ADD9B3000593A61 /* Help-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA821ADD9B3000593A61 /* Help-50.png */; };
+		8CC8EA851ADE0B6600593A61 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8EA841ADE0B6600593A61 /* Temp.swift */; };
+		8CC8EA871ADE0DD100593A61 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8EA861ADE0DD100593A61 /* Model.swift */; };
+		8CC8EA891ADE10A200593A61 /* Back Muscles-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA881ADE10A200593A61 /* Back Muscles-50.png */; };
+		8CC8EA8B1ADE12A100593A61 /* Leg-50 (1) copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA8A1ADE12A100593A61 /* Leg-50 (1) copy.png */; };
+		8CC8EA8D1ADE12BE00593A61 /* Flex Biceps-50 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA8C1ADE12BE00593A61 /* Flex Biceps-50 copy.png */; };
+		8CC8EA8F1ADE210300593A61 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8EA8E1ADE210300593A61 /* WorkoutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +70,63 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C09976B1AE7518C00D91A86 /* SetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTableViewController.swift; sourceTree = "<group>"; };
+		8C09976D1AE7535F00D91A86 /* BodyPartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPartTableViewController.swift; sourceTree = "<group>"; };
+		8C09976F1AE75FAB00D91A86 /* Stopwatch Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stopwatch Filled-50.png"; sourceTree = "<group>"; };
+		8C0997711AE761CC00D91A86 /* RepsPoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepsPoundsTableViewController.swift; sourceTree = "<group>"; };
+		8C0997751AE8AD9900D91A86 /* paris.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paris.jpg; sourceTree = "<group>"; };
+		8C0997771AE946B000D91A86 /* WorkoutNamesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutNamesTableView.swift; sourceTree = "<group>"; };
+		8C09977A1AEB1B1400D91A86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8C09977C1AEB6CA500D91A86 /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
+		8C4F56961AE1B7FC002C490A /* ExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewController.swift; sourceTree = "<group>"; };
+		8C5209671ADF70010010B8FF /* Home-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-50.png"; sourceTree = "<group>"; };
+		8C52096B1ADFF9000010B8FF /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
+		8C52096C1ADFF9000010B8FF /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = "<group>"; };
+		8C52096D1ADFF9000010B8FF /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = "<group>"; };
+		8C52096E1ADFF9000010B8FF /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = "<group>"; };
+		8C52096F1ADFF9000010B8FF /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = "<group>"; };
+		8C5209701ADFF9000010B8FF /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
+		8C5209741AE017AC0010B8FF /* Plus-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus-50.png"; sourceTree = "<group>"; };
+		8C52097A1AE034CD0010B8FF /* images-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-1.jpg"; sourceTree = "<group>"; };
+		8C92E1631AE6DE3C00C9FC3B /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		8CC8EA221AD34FE100593A61 /* WorkoutTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC8EA261AD34FE100593A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CC8EA271AD34FE100593A61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CC8EA291AD34FE100593A61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8CC8EA2C1AD34FE100593A61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CC8EA2E1AD34FE100593A61 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8CC8EA311AD34FE100593A61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8CC8EA371AD34FE100593A61 /* WorkoutTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkoutTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC8EA3C1AD34FE100593A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CC8EA3D1AD34FE100593A61 /* WorkoutTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTrackerTests.swift; sourceTree = "<group>"; };
+		8CC8EA551ADC874400593A61 /* Dumbbell-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dumbbell-50.png"; sourceTree = "<group>"; };
+		8CC8EA561ADC874400593A61 /* Settings-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-50.png"; sourceTree = "<group>"; };
+		8CC8EA571ADC874400593A61 /* Start-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start-50.png"; sourceTree = "<group>"; };
+		8CC8EA581ADC874400593A61 /* Line Chart-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Line Chart-50.png"; sourceTree = "<group>"; };
+		8CC8EA5D1ADD66B900593A61 /* Torso-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Torso-50.png"; sourceTree = "<group>"; };
+		8CC8EA5E1ADD66B900593A61 /* Prelum-50 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Prelum-50 (1).png"; sourceTree = "<group>"; };
+		8CC8EA5F1ADD66B900593A61 /* Prelum-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Prelum-50.png"; sourceTree = "<group>"; };
+		8CC8EA641ADD6F3700593A61 /* Back-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back-50.png"; sourceTree = "<group>"; };
+		8CC8EA661ADD6F4700593A61 /* Flex Biceps-50 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Flex Biceps-50 (1).png"; sourceTree = "<group>"; };
+		8CC8EA671ADD6F4700593A61 /* Flex Biceps-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Flex Biceps-50.png"; sourceTree = "<group>"; };
+		8CC8EA6A1ADD6F5D00593A61 /* Medical Heart-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Medical Heart-50.png"; sourceTree = "<group>"; };
+		8CC8EA6B1ADD6F5D00593A61 /* Shoulders-50 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shoulders-50 (1).png"; sourceTree = "<group>"; };
+		8CC8EA6C1ADD6F5D00593A61 /* Shoulders-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shoulders-50.png"; sourceTree = "<group>"; };
+		8CC8EA6D1ADD6F5D00593A61 /* Neck-50 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Neck-50 (1).png"; sourceTree = "<group>"; };
+		8CC8EA6E1ADD6F5D00593A61 /* Neck-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Neck-50.png"; sourceTree = "<group>"; };
+		8CC8EA6F1ADD6F5D00593A61 /* Chest-50 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chest-50 (1).png"; sourceTree = "<group>"; };
+		8CC8EA701ADD6F5D00593A61 /* Chest-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chest-50.png"; sourceTree = "<group>"; };
+		8CC8EA711ADD6F5D00593A61 /* Leg-501.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leg-501.png"; sourceTree = "<group>"; };
+		8CC8EA721ADD6F5D00593A61 /* Leg-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leg-50.png"; sourceTree = "<group>"; };
+		8CC8EA7C1ADD7F3A00593A61 /* Full Moon-50 copy 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Full Moon-50 copy 2.png"; sourceTree = "<group>"; };
+		8CC8EA7E1ADD7F4100593A61 /* Full Moon-50 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Full Moon-50 copy.png"; sourceTree = "<group>"; };
+		8CC8EA801ADD7F4600593A61 /* Full Moon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Full Moon-50.png"; sourceTree = "<group>"; };
+		8CC8EA821ADD9B3000593A61 /* Help-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Help-50.png"; sourceTree = "<group>"; };
+		8CC8EA841ADE0B6600593A61 /* Temp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
+		8CC8EA861ADE0DD100593A61 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8CC8EA881ADE10A200593A61 /* Back Muscles-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back Muscles-50.png"; sourceTree = "<group>"; };
+		8CC8EA8A1ADE12A100593A61 /* Leg-50 (1) copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leg-50 (1) copy.png"; sourceTree = "<group>"; };
+		8CC8EA8C1ADE12BE00593A61 /* Flex Biceps-50 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Flex Biceps-50 copy.png"; sourceTree = "<group>"; };
+		8CC8EA8E1ADE210300593A61 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +147,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C5209691ADFF8E90010B8FF /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				8C52096A1ADFF9000010B8FF /* Classes */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		8C52096A1ADFF9000010B8FF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8C52096B1ADFF9000010B8FF /* JBBarChartView.h */,
+				8C52096C1ADFF9000010B8FF /* JBBarChartView.m */,
+				8C52096D1ADFF9000010B8FF /* JBChartView.h */,
+				8C52096E1ADFF9000010B8FF /* JBChartView.m */,
+				8C52096F1ADFF9000010B8FF /* JBLineChartView.h */,
+				8C5209701ADFF9000010B8FF /* JBLineChartView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		8CC8EA191AD34FE100593A61 = {
 			isa = PBXGroup;
 			children = (
@@ -77,9 +189,21 @@
 		8CC8EA241AD34FE100593A61 /* WorkoutTracker */ = {
 			isa = PBXGroup;
 			children = (
+				8C5209691ADFF8E90010B8FF /* Libraries */,
+				8CC8EA631ADD66C700593A61 /* Images */,
 				8CC8EA271AD34FE100593A61 /* AppDelegate.swift */,
 				8CC8EA291AD34FE100593A61 /* ViewController.swift */,
-				8CC8EA2B1AD34FE100593A61 /* Main.storyboard */,
+				8C0997771AE946B000D91A86 /* WorkoutNamesTableView.swift */,
+				8CC8EA8E1ADE210300593A61 /* WorkoutViewController.swift */,
+				8C4F56961AE1B7FC002C490A /* ExerciseTableViewController.swift */,
+				8C92E1631AE6DE3C00C9FC3B /* ExerciseViewController.swift */,
+				8C09976D1AE7535F00D91A86 /* BodyPartTableViewController.swift */,
+				8C09976B1AE7518C00D91A86 /* SetTableViewController.swift */,
+				8C0997711AE761CC00D91A86 /* RepsPoundsTableViewController.swift */,
+				8C09977C1AEB6CA500D91A86 /* FinishedViewController.swift */,
+				8CC8EA861ADE0DD100593A61 /* Model.swift */,
+				8CC8EA841ADE0B6600593A61 /* Temp.swift */,
+				8C0997791AEB1B1300D91A86 /* Main.storyboard */,
 				8CC8EA2E1AD34FE100593A61 /* Images.xcassets */,
 				8CC8EA301AD34FE100593A61 /* LaunchScreen.xib */,
 				8CC8EA251AD34FE100593A61 /* Supporting Files */,
@@ -110,6 +234,44 @@
 				8CC8EA3C1AD34FE100593A61 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8CC8EA631ADD66C700593A61 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8C0997751AE8AD9900D91A86 /* paris.jpg */,
+				8C09976F1AE75FAB00D91A86 /* Stopwatch Filled-50.png */,
+				8C52097A1AE034CD0010B8FF /* images-1.jpg */,
+				8C5209741AE017AC0010B8FF /* Plus-50.png */,
+				8C5209671ADF70010010B8FF /* Home-50.png */,
+				8CC8EA821ADD9B3000593A61 /* Help-50.png */,
+				8CC8EA801ADD7F4600593A61 /* Full Moon-50.png */,
+				8CC8EA7E1ADD7F4100593A61 /* Full Moon-50 copy.png */,
+				8CC8EA7C1ADD7F3A00593A61 /* Full Moon-50 copy 2.png */,
+				8CC8EA6A1ADD6F5D00593A61 /* Medical Heart-50.png */,
+				8CC8EA5D1ADD66B900593A61 /* Torso-50.png */,
+				8CC8EA881ADE10A200593A61 /* Back Muscles-50.png */,
+				8CC8EA641ADD6F3700593A61 /* Back-50.png */,
+				8CC8EA6B1ADD6F5D00593A61 /* Shoulders-50 (1).png */,
+				8CC8EA6C1ADD6F5D00593A61 /* Shoulders-50.png */,
+				8CC8EA6D1ADD6F5D00593A61 /* Neck-50 (1).png */,
+				8CC8EA6E1ADD6F5D00593A61 /* Neck-50.png */,
+				8CC8EA6F1ADD6F5D00593A61 /* Chest-50 (1).png */,
+				8CC8EA701ADD6F5D00593A61 /* Chest-50.png */,
+				8CC8EA711ADD6F5D00593A61 /* Leg-501.png */,
+				8CC8EA721ADD6F5D00593A61 /* Leg-50.png */,
+				8CC8EA661ADD6F4700593A61 /* Flex Biceps-50 (1).png */,
+				8CC8EA671ADD6F4700593A61 /* Flex Biceps-50.png */,
+				8CC8EA8A1ADE12A100593A61 /* Leg-50 (1) copy.png */,
+				8CC8EA8C1ADE12BE00593A61 /* Flex Biceps-50 copy.png */,
+				8CC8EA5F1ADD66B900593A61 /* Prelum-50.png */,
+				8CC8EA5E1ADD66B900593A61 /* Prelum-50 (1).png */,
+				8CC8EA551ADC874400593A61 /* Dumbbell-50.png */,
+				8CC8EA561ADC874400593A61 /* Settings-50.png */,
+				8CC8EA571ADC874400593A61 /* Start-50.png */,
+				8CC8EA581ADC874400593A61 /* Line Chart-50.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +354,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CC8EA2D1AD34FE100593A61 /* Main.storyboard in Resources */,
+				8CC8EA741ADD6F5D00593A61 /* Shoulders-50 (1).png in Resources */,
+				8C52097B1AE034CD0010B8FF /* images-1.jpg in Resources */,
+				8CC8EA601ADD66B900593A61 /* Torso-50.png in Resources */,
+				8CC8EA691ADD6F4700593A61 /* Flex Biceps-50.png in Resources */,
+				8CC8EA891ADE10A200593A61 /* Back Muscles-50.png in Resources */,
+				8CC8EA651ADD6F3700593A61 /* Back-50.png in Resources */,
+				8CC8EA831ADD9B3000593A61 /* Help-50.png in Resources */,
+				8CC8EA7B1ADD6F5D00593A61 /* Leg-50.png in Resources */,
 				8CC8EA321AD34FE100593A61 /* LaunchScreen.xib in Resources */,
+				8C5209681ADF70010010B8FF /* Home-50.png in Resources */,
 				8CC8EA2F1AD34FE100593A61 /* Images.xcassets in Resources */,
+				8CC8EA5A1ADC874400593A61 /* Settings-50.png in Resources */,
+				8CC8EA7F1ADD7F4100593A61 /* Full Moon-50 copy.png in Resources */,
+				8CC8EA811ADD7F4600593A61 /* Full Moon-50.png in Resources */,
+				8CC8EA7A1ADD6F5D00593A61 /* Leg-501.png in Resources */,
+				8CC8EA781ADD6F5D00593A61 /* Chest-50 (1).png in Resources */,
+				8C0997701AE75FAB00D91A86 /* Stopwatch Filled-50.png in Resources */,
+				8CC8EA7D1ADD7F3A00593A61 /* Full Moon-50 copy 2.png in Resources */,
+				8C0997761AE8AD9900D91A86 /* paris.jpg in Resources */,
+				8CC8EA621ADD66B900593A61 /* Prelum-50.png in Resources */,
+				8CC8EA8B1ADE12A100593A61 /* Leg-50 (1) copy.png in Resources */,
+				8CC8EA771ADD6F5D00593A61 /* Neck-50.png in Resources */,
+				8C5209751AE017AC0010B8FF /* Plus-50.png in Resources */,
+				8C09977B1AEB1B1400D91A86 /* Main.storyboard in Resources */,
+				8CC8EA731ADD6F5D00593A61 /* Medical Heart-50.png in Resources */,
+				8CC8EA611ADD66B900593A61 /* Prelum-50 (1).png in Resources */,
+				8CC8EA8D1ADE12BE00593A61 /* Flex Biceps-50 copy.png in Resources */,
+				8CC8EA761ADD6F5D00593A61 /* Neck-50 (1).png in Resources */,
+				8CC8EA591ADC874400593A61 /* Dumbbell-50.png in Resources */,
+				8CC8EA5B1ADC874400593A61 /* Start-50.png in Resources */,
+				8CC8EA791ADD6F5D00593A61 /* Chest-50.png in Resources */,
+				8CC8EA681ADD6F4700593A61 /* Flex Biceps-50 (1).png in Resources */,
+				8CC8EA751ADD6F5D00593A61 /* Shoulders-50.png in Resources */,
+				8CC8EA5C1ADC874400593A61 /* Line Chart-50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +405,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C09976E1AE7535F00D91A86 /* BodyPartTableViewController.swift in Sources */,
 				8CC8EA2A1AD34FE100593A61 /* ViewController.swift in Sources */,
+				8C0997781AE946B000D91A86 /* WorkoutNamesTableView.swift in Sources */,
+				8CC8EA851ADE0B6600593A61 /* Temp.swift in Sources */,
+				8CC8EA8F1ADE210300593A61 /* WorkoutViewController.swift in Sources */,
+				8C5209721ADFF9000010B8FF /* JBChartView.m in Sources */,
+				8C5209711ADFF9000010B8FF /* JBBarChartView.m in Sources */,
+				8C09976C1AE7518C00D91A86 /* SetTableViewController.swift in Sources */,
+				8C4F56971AE1B7FC002C490A /* ExerciseTableViewController.swift in Sources */,
+				8C92E1641AE6DE3C00C9FC3B /* ExerciseViewController.swift in Sources */,
+				8C0997721AE761CC00D91A86 /* RepsPoundsTableViewController.swift in Sources */,
+				8C09977D1AEB6CA500D91A86 /* FinishedViewController.swift in Sources */,
+				8C5209731ADFF9000010B8FF /* JBLineChartView.m in Sources */,
 				8CC8EA281AD34FE100593A61 /* AppDelegate.swift in Sources */,
+				8CC8EA871ADE0DD100593A61 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,10 +442,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8CC8EA2B1AD34FE100593A61 /* Main.storyboard */ = {
+		8C0997791AEB1B1300D91A86 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8CC8EA2C1AD34FE100593A61 /* Base */,
+				8C09977A1AEB1B1400D91A86 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -407,6 +613,7 @@
 				8CC8EA431AD34FE100593A61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8CC8EA441AD34FE100593A61 /* Build configuration list for PBXNativeTarget "WorkoutTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +622,7 @@
 				8CC8EA461AD34FE100593A61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
