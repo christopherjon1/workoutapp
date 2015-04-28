@@ -16,6 +16,7 @@ class OneRepMaxTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.allowsSelection = false
         tableView.backgroundColor = UIColor.clearColor()
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.separatorColor = UIColor.clearColor()
@@ -29,11 +30,7 @@ class OneRepMaxTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("oneRepCell") as! UITableViewCell
         //exercise at index path
-        cell.textLabel!.text = workout.exercises[indexPath.row].getName() + " " + String(workout.exercises[indexPath.row].getOneRepMax()) + " lbs"
+        cell.textLabel!.text = workout.exercises[indexPath.row].getName() + " " + String(stringInterpolationSegment: workout.exercises[indexPath.row].getOneRepMax()) + " lbs"
         return cell
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedIndex = indexPath.row
     }
 }

@@ -17,6 +17,13 @@ class CardioViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     var cardioTime = 1
     var caloriesBurn = 1
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if ( segue.identifier == "cardioToHomeSegue" ) {
+            weekCardio += self.cardioTime
+            weekCalories += self.caloriesBurn
+        }
+    }
+    
     // returns the number of 'columns' to display.
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
         if (pickerView == self.cardioTimeInput){
@@ -119,24 +126,6 @@ class CardioViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         finisheButton.layer.cornerRadius = 10.0
         finisheButton.setTranslatesAutoresizingMaskIntoConstraints(false)
         view.addSubview(finisheButton)
-        
-        finisheButton.addTarget(self, action: "addCardio", forControlEvents: UIControlEvents.TouchUpInside)
-    }
-    
-    func addCardio() {
-
-        let alertController = UIAlertController(title: "", message:
-            "Set cardio time to \(cardioTime) and calories to \(caloriesBurn)", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        let declineAction = UIAlertAction(title: "Decline", style: .Cancel, handler: nil)
-        let acceptAction = UIAlertAction(title: "Accept", style: .Default) { (_) -> Void in
-            weekCardio += self.cardioTime
-            weekCalories += self.caloriesBurn
-            self.navigationController!.popViewControllerAnimated(true)!.viewDidLoad()
-        }
-        alertController.addAction(declineAction)
-        alertController.addAction(acceptAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

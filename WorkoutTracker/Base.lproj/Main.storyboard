@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="od5-AH-PVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-590" y="219"/>
+            <point key="canvasLocation" x="264" y="-756"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -31,7 +31,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="600" height="702"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="638"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YS-sB-WBR">
@@ -58,6 +58,9 @@
                                 <state key="normal" image="Line Chart-50.png">
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1I9-YF-LLN" kind="show" id="kXa-99-cUk"/>
+                                </connections>
                             </button>
                             <button contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgA-LL-vCn">
                                 <rect key="frame" x="425" y="542" width="117" height="50"/>
@@ -69,6 +72,9 @@
                                 <state key="normal" image="Settings-50.png">
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="TNc-nt-tCT" kind="show" id="uGX-sf-NDT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Abs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAK-iq-xdg">
                                 <rect key="frame" x="168" y="205" width="78" height="21"/>
@@ -417,14 +423,50 @@
                         <viewControllerLayoutGuide type="bottom" id="3iV-WF-xg1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nhA-uH-RrB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="702"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="638"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4i-zJ-bTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="264" y="1065"/>
+            <point key="canvasLocation" x="-460" y="220"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ScA-ad-fyq">
+            <objects>
+                <viewController id="1I9-YF-LLN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qzZ-d4-YiM"/>
+                        <viewControllerLayoutGuide type="bottom" id="7nk-J5-PK1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k9M-wt-upg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z0L-xd-7Od" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-460" y="1093"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Yhz-ac-mwK">
+            <objects>
+                <viewController id="TNc-nt-tCT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gGw-kz-19C"/>
+                        <viewControllerLayoutGuide type="bottom" id="qPX-PB-fFZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DRx-pN-ehZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rq1-XZ-hxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264" y="1093"/>
         </scene>
         <!--Workout Names Table View Controller-->
         <scene sceneID="E6U-22-Hy3">
@@ -584,13 +626,13 @@
                                 </state>
                             </button>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ec-mS-gWb">
-                                <rect key="frame" x="236" y="161" width="125" height="38"/>
+                                <rect key="frame" x="236" y="161" width="125" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="hNQ-Ce-Nir"/>
                                 </constraints>
                             </pickerView>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ot-Vo-O0R">
-                                <rect key="frame" x="53" y="405" width="392" height="35"/>
+                                <rect key="frame" x="53" y="405" width="392" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="D6k-3k-JMJ"/>
                                     <constraint firstAttribute="height" constant="35" id="ms1-9G-8Pw"/>
@@ -817,12 +859,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2U-94-pXP">
-                                <rect key="frame" x="134" y="501" width="373" height="30"/>
+                                <rect key="frame" x="134" y="501" width="373" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="br3-pY-wpM">
-                                <rect key="frame" x="34" y="413" width="392" height="31"/>
+                                <rect key="frame" x="34" y="413" width="392" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="BZH-ys-rvl"/>
                                     <constraint firstAttribute="width" constant="250" id="iFj-M6-k66"/>
@@ -1216,21 +1258,24 @@
                         <viewControllerLayoutGuide type="bottom" id="S3d-FX-f2X"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HMe-Hd-7JC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="702"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="638"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flo-2b-Rdb">
-                                <rect key="frame" x="272" y="565" width="41" height="30"/>
-                                <state key="normal" title="Finish">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjG-Ob-Fu7">
                                 <rect key="frame" x="38" y="60" width="524" height="162"/>
                             </pickerView>
                             <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXi-ab-4ug">
                                 <rect key="frame" x="38" y="285" width="524" height="162"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flo-2b-Rdb">
+                                <rect key="frame" x="280" y="497" width="41" height="30"/>
+                                <state key="normal" title="Finish">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="cardioToHomeSegue" id="Fpf-5L-sTn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1255,7 +1300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dk4-qI-a7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-590" y="1065"/>
+            <point key="canvasLocation" x="-430" y="-705"/>
         </scene>
     </scenes>
     <resources>
@@ -1276,7 +1321,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rcI-sc-0mR"/>
-        <segue reference="52y-v0-DXT"/>
+        <segue reference="Fpf-5L-sTn"/>
         <segue reference="rjO-QK-9tp"/>
     </inferredMetricsTieBreakers>
 </document>

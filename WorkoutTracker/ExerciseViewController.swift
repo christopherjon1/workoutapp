@@ -152,6 +152,12 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        if (exercise!.getName() == "" ) {
+            exercise!.setName("No Name")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

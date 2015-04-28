@@ -98,6 +98,11 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        if (workout!.getName() == "" ) {
+            workout!.setName("No Name")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,6 +144,10 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func changeName() {
+        if ( listOfWorkouts.containsObject(<#anObject: AnyObject#>)) {
+        
+        }
+        
         workout!.setName(workoutName.text)
         self.title = workout!.getName()
         workoutName.text = ""

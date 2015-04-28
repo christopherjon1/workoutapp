@@ -25,8 +25,8 @@ var totalRepAllowed = 50
 var totalPoundsAllowed = 1001
 
 //cardio stuff
-var totalCardioAllowed = 121
-var totalCaloriesAllowed = 2001
+var totalCardioAllowed = 120
+var totalCaloriesAllowed = 200
 
 
 //weekly stats
@@ -101,8 +101,8 @@ var statCalories : [Int] = []
 
 //dictionary of workouts
 var pastWorkouts : NSMutableDictionary = [:]
-var listOfWorkouts : NSMutableArray = []
-var listOfExercises : NSMutableArray = []
+var listOfWorkouts : [String] = []
+var listOfExercises : [String] = []
 
 //Not Worked out Image
 let noAbs = UIImage(named: "Torso-50.png")
@@ -296,9 +296,9 @@ class ExerciseObject {
         let a = 37 - self.getReps()
         let b : Double = 36 / Double(a)
         if (totalReps == 0 ) {return 0}
-        let c = weightPushed / totalReps
-        let d = Int(1.0 + (0.025 * Double(totalReps)))
-        return c * d
+        let c : Double = Double(weightPushed / totalReps)
+        let d : Double = 1.0 + (0.025 * Double(totalReps))
+        return Int(c * d)
     }
     func setOneRepMax(_oneRepMax: Int) {
         oneRepMax = _oneRepMax
