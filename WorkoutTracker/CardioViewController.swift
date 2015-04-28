@@ -14,12 +14,15 @@ class CardioViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var caloriesInput: UIPickerView!
     @IBOutlet weak var finisheButton: UIButton!
     
-    var cardioTime = 0
-    var caloriesBurn = 0
+    var cardioTime = 1
+    var caloriesBurn = 1
     
     // returns the number of 'columns' to display.
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
-            return 2
+        if (pickerView == self.cardioTimeInput){
+            return 3
+        }
+        return 2
     }
     
     // returns the # of rows in each component..
@@ -39,6 +42,15 @@ class CardioViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         }
     }
     
+    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        if (pickerView == self.cardioTimeInput){
+            if (component == 1) {
+                return 25.0
+            }
+        }
+        return 200
+    }
+    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         if (pickerView == self.cardioTimeInput){
@@ -46,7 +58,7 @@ class CardioViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 cardioTime = row + 1
             }
         } else {
-            if (component == 0) {
+            if (component == 1) {
                 caloriesBurn = row + 1
             }
         }
@@ -57,6 +69,12 @@ class CardioViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             if (component == 1) {
                 let pickerLabel = UILabel()
                 let titleData = String(row + 1)
+                let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+                pickerLabel.attributedText = myTitle
+                return pickerLabel
+            } else if ( component == 2 ) {
+                let pickerLabel = UILabel()
+                let titleData = "minutes"
                 let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
                 pickerLabel.attributedText = myTitle
                 return pickerLabel
@@ -88,6 +106,8 @@ class CardioViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Cardio"
+        
         self.cardioTimeInput.dataSource = self
         self.cardioTimeInput.delegate = self
         self.caloriesInput.dataSource = self
@@ -104,6 +124,19 @@ class CardioViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     }
     
     func addCardio() {
+
+        let alertController = UIAlertController(title: "", message:
+            "Set cardio time to \(cardioTime) and calories to \(caloriesBurn)", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let declineAction = UIAlertAction(title: "Decline", style: .Cancel, handler: nil)
+        let acceptAction = UIAlertAction(title: "Accept", style: .Default) { (_) -> Void in
+            weekCardio += self.cardioTime
+            weekCalories += self.caloriesBurn
+            self.navigationController!.popViewControllerAnimated(true)!.viewDidLoad()
+        }
+        alertController.addAction(declineAction)
+        alertController.addAction(acceptAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
