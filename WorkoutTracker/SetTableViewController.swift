@@ -22,7 +22,7 @@ class SetTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //this should be the amount of exercises in the workout
-        return exercise!.getSets().count
+        return exercise!.sets.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

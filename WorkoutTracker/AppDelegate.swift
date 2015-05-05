@@ -15,7 +15,77 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        addTestStuff()
+        testHuh = 1
+        
+        var paths : NSArray = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true);
+        var basePath : NSString = paths.objectAtIndex(0) as! NSString
+        var temp : NSMutableArray? = NSKeyedUnarchiver.unarchiveObjectWithFile(String(basePath) + "work.dat") as! NSMutableArray?
+        if ( temp != nil ) {
+            pastWorkouts = temp!
+            
+            
+            //Get Current Date/Time
+            var currentDateTime = NSDate()
+            
+            for p in pastWorkouts {
+                var pastW = p as! WorkoutObject
+                addWorkoutToList(pastW)
+                
+                for e in pastW.exercises {
+                    addExerciseToList(e)
+                }
+                
+                //get the workout data from the last week and then the week before
+                
+//                println( pastW.getDate().isGreaterThanDate( currentDateTime.subtractDays(7) ) )
+                if ( pastW.getDate().isGreaterThanDate( currentDateTime.subtractDays(week) ) ) {
+                    for ex in pastW.exercises {
+                        var exer = ex as ExerciseObject
+                        if ( exer.getBodyPart() == .Abs) { weekAbs += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .Chest) { weekChest += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .Legs) { weekLegs += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .Back) { weekBack += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .Shoulders) { weekShoulders += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .Arms) { weekArms += exer.getWeightPushed() }
+                    }
+                }
+                else if ( pastW.getDate().isGreaterThanDate( currentDateTime.subtractDays(week*2) ) &&
+                    pastW.getDate().isLessThanDate( currentDateTime.subtractDays(week) ) ) {
+                    for ex in pastW.exercises {
+                        var exer = ex as ExerciseObject
+                        if ( exer.getBodyPart() == .Abs) { preWeekAbs += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .Chest) { preWeekChest += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .Legs) { preWeekLegs += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .Back) { preWeekBack += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .Shoulders) { preWeekShoulders += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .Arms) { preWeekArms += exer.getWeightPushed() }
+                    }
+                }
+//                else if ( pastW.getDate().isLessThanDate( currentDateTime.subtractDays(week*2) ) ) {
+//                        for ex in pastW.exercises {
+//                            var exer = ex as ExerciseObject
+//                            if ( exer.getBodyPart() == .Abs) { preWeekAbs += exer.getWeightPushed() }
+//                            if ( exer.getBodyPart() == .Chest) { preWeekChest += exer.getWeightPushed() }
+//                            if ( exer.getBodyPart() == .Legs) { preWeekLegs += exer.getWeightPushed() }
+//                            if ( exer.getBodyPart() == .Back) { preWeekLegs += exer.getWeightPushed() }
+//                            if ( exer.getBodyPart() == .Shoulders) { preWeekShoulders += exer.getWeightPushed() }
+//                            if ( exer.getBodyPart() == .Arms) { preWeekArms += exer.getWeightPushed() }
+//                        }
+//                }
+                
+            }
+            
+            //Get Reminder Date (which is Due date minus 7 days lets say)
+//            var reminderDate = dueDate.addDays(-7)
+            
+            //Check if reminderDate is Greater than Right now
+//            if(reminderDate.isGreaterThanDate(currentDateTime))
+//            {
+//            }
+        }
+
         return true
     }
 

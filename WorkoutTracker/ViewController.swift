@@ -41,8 +41,7 @@ class ViewController: UIViewController {
             
             workoutView = segue.destinationViewController as! WorkoutViewController
             //start new workout with no initial name
-            let workout = WorkoutObject(_name: "");
-            listOfWorkouts.append(workout.getName())
+            let workout = WorkoutObject(_name: "No Name");
             //set start time
             let date = NSDate()
             let formatter = NSDateFormatter()
@@ -53,7 +52,7 @@ class ViewController: UIViewController {
             let date2 = NSDate()
             let formatter2 = NSDateFormatter()
             formatter2.dateStyle = .ShortStyle
-            workout.setDate(formatter2.stringFromDate(date2))
+            workout.setDate(date2)
             
             workoutView.workout = workout;
         }
@@ -75,7 +74,7 @@ class ViewController: UIViewController {
             let date2 = NSDate()
             let formatter2 = NSDateFormatter()
             formatter2.dateStyle = .ShortStyle
-            workout.setDate(formatter2.stringFromDate(date2))
+            workout.setDate(date2)
             
             workoutView.workout = workout;
         }

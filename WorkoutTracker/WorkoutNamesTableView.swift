@@ -36,7 +36,7 @@ class WorkoutNamesTableViewController: UITableViewController {
                     let date2 = NSDate()
                     let formatter2 = NSDateFormatter()
                     formatter2.dateStyle = .ShortStyle
-                    work.setDate(formatter2.stringFromDate(date2))
+                    work.setDate(date2)
                     
                     destination.workout = work
                 }

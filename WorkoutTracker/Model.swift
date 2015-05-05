@@ -26,8 +26,10 @@ var totalPoundsAllowed = 1001
 
 //cardio stuff
 var totalCardioAllowed = 120
-var totalCaloriesAllowed = 200
+var totalCaloriesAllowed = 2000
 
+//"week" time
+var week = 7
 
 //weekly stats
 var weekAbs = 0
@@ -41,13 +43,13 @@ var weekCardio = 0
 var weekCalories = 0
 
 //previous weekly stats
-var preWeekAbs = 10
-var preWeekChest = 10
-var preWeekLegs = 50
-var preWeekBack = 120
-var preWeekShoulders = 120
-var preWeekArms = 30
-var preWeekOther = 50
+var preWeekAbs = 100
+var preWeekChest = 100
+var preWeekLegs = 500
+var preWeekBack = 1200
+var preWeekShoulders = 1020
+var preWeekArms = 300
+var preWeekOther = 5000
 var preWeekCardio = 0
 var preWeekCalories = 0
 
@@ -99,10 +101,11 @@ var statArms : [Int] = []
 var statCardio : [Int] = []
 var statCalories : [Int] = []
 
-//dictionary of workouts
-var pastWorkouts : NSMutableDictionary = [:]
-var listOfWorkouts : [String] = []
-var listOfExercises : [String] = []
+//a dictionary for completed workouts
+var pastWorkouts : NSMutableArray = []
+//an array of workouts for showing workouts one can do
+var listOfWorkouts : NSMutableArray = []
+var listOfExercises : NSMutableArray = []
 
 //Not Worked out Image
 let noAbs = UIImage(named: "Torso-50.png")
@@ -127,6 +130,49 @@ let greatLegs = UIImage(named: "Leg-50.png")
 let greatBack = UIImage(named: "Back-50.png")
 let greatShoulders = UIImage(named: "Shoulders-50.png")
 let greatArms = UIImage(named: "Flex Biceps-50 (1).png")
+
+//---------------------------------------Add exercise / Workout ----------------------------------
+
+func addWorkoutToList(_workout: WorkoutObject) -> Bool {
+    
+    //boolean if i found it if not create new workout
+    for w in listOfWorkouts {
+        let vv : WorkoutObject = w as! WorkoutObject
+        if (vv.getName() == _workout.getName()) {
+            createNewWorkout = false
+        }
+    }
+    
+    if (createNewWorkout) {
+        listOfWorkouts.addObject(_workout.newCopy())
+        for e in _workout.exercises {
+            addExerciseToList(e)
+        }
+        return true
+    } else {
+        createNewWorkout = true
+        return false
+    }
+}
+
+func addExerciseToList(_exercise: ExerciseObject) -> Bool{
+    
+    //boolean if i found it if not create new workout
+    for e in listOfExercises {
+        let ex : ExerciseObject = e as! ExerciseObject
+        if (ex.getName() == _exercise.getName()) {
+            createNewExercise = false
+        }
+    }
+    
+    if (createNewExercise) {
+        listOfExercises.addObject(_exercise.newCopy())
+        return true
+    } else {
+        createNewExercise = true
+        return false
+    }
+}
 
 //----------------------------------------------test stuff ---------------------------------------
 
@@ -153,24 +199,41 @@ func addTestStuff() {
     listOfExercises.addObject(extentions.newCopy())
     listOfExercises.addObject(squat.newCopy())
     listOfExercises.addObject(lunges.newCopy())
-    
-    pastWorkouts.setObject(arms, forKey: arms.getName())
-    pastWorkouts.setObject(legs, forKey: legs.getName())
 }
 
 //----------------------------------------------Objects-------------------------------------------
 
 //workout object
-class WorkoutObject {
+class WorkoutObject: NSObject, NSCoding {
     private var name : String
     var exercises : [ExerciseObject] = []
     private var notes : String = ""
-    private var date : String = ""
+    private var date : NSDate!
     private var startTime : String = ""
     private var endTime : String = ""
-    private var totalWeight = 0
+    private var totalWeight : Int = 0
     
-    init(_name : String) {
+    @objc required init(coder aDecoder: NSCoder) {
+        name = aDecoder.decodeObjectForKey("name") as! String
+        exercises = aDecoder.decodeObjectForKey("exercises") as! [ExerciseObject]
+        notes = aDecoder.decodeObjectForKey("notes") as! String
+        date = aDecoder.decodeObjectForKey("date") as? NSDate
+        startTime = aDecoder.decodeObjectForKey("startTime") as! String
+        endTime = aDecoder.decodeObjectForKey("endTime") as! String
+        totalWeight = aDecoder.decodeIntegerForKey("totalWeight")
+    }
+    
+    @objc func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeObject(exercises, forKey: "exercises")
+        aCoder.encodeObject(notes, forKey: "notes")
+        aCoder.encodeObject(date, forKey: "date")
+        aCoder.encodeObject(startTime, forKey: "startTime")
+        aCoder.encodeObject(endTime, forKey: "endTime")
+        aCoder.encodeInteger(totalWeight, forKey: "totalWeight")
+    }
+    
+    @objc init(_name : String) {
         name = _name
     }
     func getName() -> String {
@@ -194,10 +257,10 @@ class WorkoutObject {
     func getNotes() -> String {
         return notes
     }
-    func setDate(_date : String) {
+    func setDate(_date : NSDate) {
         date = _date
     }
-    func getDate() -> String {
+    func getDate() -> NSDate {
         return date
     }
     func setStartTime(_time : String) {
@@ -250,10 +313,22 @@ class WorkoutObject {
     }
 }
 
-class SetObject {
-    private var reps = 0
-    private var weight = 0
+class SetObject: NSObject, NSCoding  {
+    private var reps : Int = 0
+    private var weight : Int = 0
     private var string = ""
+    
+    override init() {}
+    
+    @objc required init(coder aDecoder: NSCoder) {
+        reps = aDecoder.decodeIntegerForKey("reps")
+        weight = aDecoder.decodeIntegerForKey("weight")
+    }
+    
+    @objc func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeInteger(reps, forKey: "reps")
+        aCoder.encodeInteger(weight, forKey: "weight")
+    }
     
     func setReps(_reps: Int) {
         reps = _reps
@@ -273,7 +348,7 @@ class SetObject {
 }
 
 //exercise object
-class ExerciseObject {
+class ExerciseObject: NSObject, NSCoding  {
     
     private var name : String
     private var bodyPart : BodyPart = .None
@@ -281,6 +356,24 @@ class ExerciseObject {
     private var weightPushed = 0
     private var totalReps = 0
     private var oneRepMax = 0
+    
+    @objc required init(coder aDecoder: NSCoder) {
+        name = aDecoder.decodeObjectForKey("name") as! String
+        bodyPart = BodyPart(rawValue: (aDecoder.decodeObjectForKey("bodyPart") as! String))!
+        sets = aDecoder.decodeObjectForKey("sets") as! [SetObject]
+        weightPushed = aDecoder.decodeIntegerForKey("weightPushed")
+        totalReps = aDecoder.decodeIntegerForKey("totalReps")
+        oneRepMax = aDecoder.decodeIntegerForKey("oneRepMax")
+    }
+    
+    @objc func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeObject(bodyPart.rawValue, forKey: "bodyPart")
+        aCoder.encodeObject(sets, forKey: "sets")
+        aCoder.encodeInteger(weightPushed, forKey: "weightPushed")
+        aCoder.encodeInteger(totalReps, forKey: "totalReps")
+        aCoder.encodeInteger(oneRepMax, forKey: "oneRepMax")
+    }
     
     init(_name : String) {
         name = _name
@@ -308,12 +401,6 @@ class ExerciseObject {
     }
     func setName(_name: String) {
         name = _name
-    }
-    func getSets() -> [SetObject] {
-        return sets
-    }
-    func setSets(_sets: [SetObject]) {
-        sets = _sets
     }
     func getReps() -> Int {
         totalReps = 0
@@ -344,14 +431,14 @@ class ExerciseObject {
 //-------------------------------------Enum Body Part Stuff---------------------------------------------------
 
 //enum of body parts that could be used
-enum BodyPart {
-    case Abs
-    case Chest
-    case Legs
-    case Back
-    case Shoulders
-    case Arms
-    case None
+enum BodyPart : String {
+    case Abs = "Abs"
+    case Chest = "Chest"
+    case Legs = "Legs"
+    case Back = "Back"
+    case Shoulders = "Shoulders"
+    case Arms = "Arms"
+    case None = "None"
     
     static var count: Int { return BodyPart.None.hashValue + 1}
 }
@@ -420,4 +507,84 @@ func getValueOfBodyPartAtIndex(Index: Int) -> String {
     return value
 }
 
+//------------------------------------------date stuff-----------------------------------
 
+extension NSDate
+{
+    func isGreaterThanDate(dateToCompare : NSDate) -> Bool
+    {
+        //Declare Variables
+        var isGreater = false
+        
+        //Compare Values
+        if self.compare(dateToCompare) == NSComparisonResult.OrderedDescending
+        {
+            isGreater = true
+        }
+        
+        //Return Result
+        return isGreater
+    }
+    
+    
+    func isLessThanDate(dateToCompare : NSDate) -> Bool
+    {
+        //Declare Variables
+        var isLess = false
+        
+        //Compare Values
+        if self.compare(dateToCompare) == NSComparisonResult.OrderedAscending
+        {
+            isLess = true
+        }
+        
+        //Return Result
+        return isLess
+    }
+    
+    
+    //    func isEqualToDate(dateToCompare : NSDate) -> Bool
+    //    {
+    //        //Declare Variables
+    //        var isEqualTo = false
+    //
+    //        //Compare Values
+    //        if self.compare(dateToCompare) == NSComparisonResult.OrderedSame
+    //        {
+    //            isEqualTo = true
+    //        }
+    //
+    //        //Return Result
+    //        return isEqualTo
+    //    }
+    
+    
+    
+    func addDays(daysToAdd : Int) -> NSDate
+    {
+        var secondsInDays : NSTimeInterval = Double(daysToAdd) * 60 * 60 * 24
+        var dateWithDaysAdded : NSDate = self.dateByAddingTimeInterval(secondsInDays)
+        
+        //Return Result
+        return dateWithDaysAdded
+    }
+    
+    func subtractDays(daysToSubtract : Int) -> NSDate
+    {
+        var secondsInDays : NSTimeInterval = Double(daysToSubtract) * 24 * 60 * 60
+        var dateWithDaysAdded : NSDate = self.dateByAddingTimeInterval(-secondsInDays)
+        
+        //Return Result
+        return dateWithDaysAdded
+    }
+    
+    
+    func addHours(hoursToAdd : Int) -> NSDate
+    {
+        var secondsInHours : NSTimeInterval = Double(hoursToAdd) * 60 * 60
+        var dateWithHoursAdded : NSDate = self.dateByAddingTimeInterval(secondsInHours)
+        
+        //Return Result
+        return dateWithHoursAdded
+    }
+}

@@ -10,7 +10,6 @@ import UIKit
 
 class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var exerciseName: UITextField!
     @IBOutlet weak var exerciseNameLabel: UIButton!
     
     @IBOutlet weak var addSetButton: UIButton!
@@ -153,6 +152,7 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     override func viewWillDisappear(animated: Bool) {
+
         if (exercise!.getName() == "" ) {
             exercise!.setName("No Name")
         }
@@ -170,10 +170,6 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         self.repPounds.dataSource = self
         self.repPounds.delegate = self
-        
-        self.exerciseName.delegate = self
-        
-        exerciseName.borderStyle = UITextBorderStyle.RoundedRect
         
         timeButton.addTarget(self, action: "startCounter", forControlEvents: UIControlEvents.TouchUpInside)
         exerciseNameLabel.addTarget(self, action: "changeName", forControlEvents: UIControlEvents.TouchUpInside)
@@ -198,15 +194,63 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
         set.setWeight(pounds)
         setWeekPart(exercise!.getBodyPart(), reps * pounds)
         exercise!.sets.append(set)
-        setTable.tableView.reloadData()
+
+        self.setTable.tableView.reloadData()
     }
     
     func changeName() {
-        exercise!.setName(exerciseName.text)
-        self.title = exercise!.getName()
-        exerciseName.text = ""
-        exerciseName.resignFirstResponder()
-        self.navigationController?.navigationBarHidden = false
+            
+            let alertController = UIAlertController(title: nil, message: "Please enter your exercise name", preferredStyle: .Alert)
+            //        alert.alertViewStyle = UIAlertViewStyle.PlainTextInput
+            
+            alertController.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+                textField.text = ""
+            })
+            
+            let declineAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) -> Void in
+                self.navigationController?.navigationBarHidden = false
+            }
+            let acceptAction = UIAlertAction(title: "Ok", style: .Default) { (_) -> Void in
+                let textField = alertController.textFields![0] as! UITextField
+                
+                //boolean if i found it if not create new workout
+                for e in listOfExercises {
+                    let ex : ExerciseObject = e as! ExerciseObject
+                    if (ex.getName() == textField.text) {
+                        self.exercise = ex.newCopy()
+                        self.setTable.exercise = self.exercise
+                        createNewExercise = false
+                        break
+                    }
+                }
+                
+                if (createNewExercise) {
+                    listOfExercises.addObject(self.exercise!.newCopy())
+                } else {
+                    self.exercise!.setName(textField.text)
+                    createNewExercise = true
+                }
+                
+                self.navigationController?.navigationBarHidden = false
+
+                //set the title to the workout name
+                self.title = self.exercise!.getName()
+                self.viewDidLoad()
+                
+//                self.bodyPartLabel.reloadAllComponents()
+            
+                self.exercise!.setName(textField.text)
+            }
+            alertController.addAction(declineAction)
+            alertController.addAction(acceptAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        
+//        exercise!.setName(exerciseName.text)
+//        self.title = exercise!.getName()
+//        exerciseName.text = ""
+//        exerciseName.resignFirstResponder()
+//        self.navigationController?.navigationBarHidden = false
     }
     
     func updateCounter() {
@@ -243,10 +287,5 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        exerciseName.resignFirstResponder()
-        changeName()
-        return true
-    }
 }
 

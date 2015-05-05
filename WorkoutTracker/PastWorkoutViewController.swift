@@ -1,34 +1,43 @@
 //
-//  FinishedView.swift
+//  ViewController.swift
 //  WorkoutTracker
 //
-//  Created by Christopher Hartley on 4/25/15.
+//  Created by Christopher Hartley on 4/6/15.
 //  Copyright (c) 2015 Christopher Hartley. All rights reserved.
 //
 
 import UIKit
 
-class FinishedViewController: UIViewController {
+class PastWorkoutViewController: UIViewController {
     
+    //lower buttons
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var workoutButton: UIButton!
     @IBOutlet weak var statsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
-    @IBOutlet weak var workoutName: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var totalWieghtLabel: UILabel!
-    @IBOutlet weak var totalSetsLabel: UILabel!
-    @IBOutlet weak var totalRepsLabel: UILabel!
-    
-    var workout : WorkoutObject!
-    var oneRepTable : OneRepMaxTableViewController!
+    weak var workoutView: WorkoutViewController!
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if ( segue.identifier == "oneRepSegue" ) {
-            oneRepTable = segue.destinationViewController as! OneRepMaxTableViewController
-            oneRepTable.workout = workout!
+        if ( segue.identifier == "createNewWorkoutSegue" ) {
+            createNewWorkout = true
+            
+            workoutView = segue.destinationViewController as! WorkoutViewController
+            //start new workout with no initial name
+            let workout = WorkoutObject(_name: "No Name");
+            //set start time
+            let date = NSDate()
+            let formatter = NSDateFormatter()
+            formatter.timeStyle = .ShortStyle
+            workout.setStartTime(formatter.stringFromDate(date))
+            
+            //set date
+            let date2 = NSDate()
+            let formatter2 = NSDateFormatter()
+            formatter2.dateStyle = .ShortStyle
+            workout.setDate(date2)
+            
+            workoutView.workout = workout;
         }
     }
     
@@ -36,19 +45,8 @@ class FinishedViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.navigationController?.hidesBarsWhenKeyboardAppears = false
         self.navigationItem.setHidesBackButton(true, animated: true)
-        
-        workoutName.text = workout.getName()
-        
-        let formatter2 = NSDateFormatter()
-        formatter2.dateStyle = .ShortStyle
-        
-        dateLabel.text = formatter2.stringFromDate(workout.getDate())
-        timeLabel.text = "From " + workout.getStartTime() + " to " + workout.getEndTime()
-        totalWieghtLabel.text = String(workout.getTotalWeight())
-        totalSetsLabel.text = String(workout.getTotalSets())
-        totalRepsLabel.text = String(workout.getTotalReps())
-        
         
         startButton.layer.borderWidth = 0.5
         startButton.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -67,9 +65,7 @@ class FinishedViewController: UIViewController {
         settingsButton.setTranslatesAutoresizingMaskIntoConstraints(false)
         view.addSubview(settingsButton)
         
-        
         let views: [String: UIView] = ["start": startButton, "work": workoutButton, "stats": statsButton, "setting": settingsButton]
-        
         
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[start][work(start)][stats(start)][setting(start)]|", options: .allZeros, metrics: nil, views: views))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[start]|", options: .allZeros, metrics: nil, views: views))
@@ -90,3 +86,31 @@ class FinishedViewController: UIViewController {
     }
     
 }
+
+class PastWorkoutTableViewController: UITableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.allowsSelection = false
+        tableView.backgroundColor = UIColor.clearColor()
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.separatorColor = UIColor.clearColor()
+        
+        
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //this should be the amount of exercises in the workout
+        return pastWorkouts.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("pastWorkoutCell") as! UITableViewCell
+        //exercise at index path
+        let w = pastWorkouts[pastWorkouts.count - 1 - indexPath.row] as! WorkoutObject
+        cell.textLabel!.text = w.getName()
+        return cell
+    }
+}
+

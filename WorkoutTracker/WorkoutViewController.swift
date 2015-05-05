@@ -11,18 +11,18 @@ import UIKit
 class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var dateText: UILabel!
-    @IBOutlet weak var workoutName: UITextField!
     @IBOutlet weak var workoutNameLabel: UIButton!
     
     @IBOutlet weak var addExerciseButton: UIButton!
-    @IBOutlet weak var notesTextArea: UITextField!
     
     @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var oldWorkout: UIPickerView!
+    @IBOutlet weak var addNotesButton: UIButton!
+    @IBOutlet weak var oldExTabCon: UIView!
     
     var workout : WorkoutObject?
-    var oldEx : ExerciseObject = listOfExercises[0] as! ExerciseObject
+    var oldEx : ExerciseObject?// = listOfExercises[0] as! ExerciseObject
     
     weak var exerciseTable: ExerciseTableViewController!
     weak var oldExerciseTable: OldExerciseTableViewController!
@@ -41,21 +41,31 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             var exerciseView = segue.destinationViewController as! ExerciseViewController
             var ex :ExerciseObject = ExerciseObject(_name: "")
             exerciseView.exercise = ex
-            listOfExercises.addObject(ex)
+            
             workout!.exercises.append(exerciseView.exercise!)
         }
         if ( segue.identifier == "oldExSegue" ) {
             var exerciseView = segue.destinationViewController as! ExerciseViewController
-            exerciseView.exercise = oldEx.newCopy()
+            exerciseView.exercise = oldEx!.newCopy()
             workout!.exercises.append(exerciseView.exercise!)
         }
         if ( segue.identifier == "finishedSegue" ) {
+            if (workout!.getName() == "" ) {
+                workout!.setName("No Name")
+            }
             finishedVC = segue.destinationViewController as! FinishedViewController
             finishedVC.workout = workout
+            //make sure it isn't in the past workouts
             let date = NSDate()
             let formatter = NSDateFormatter()
             formatter.timeStyle = .ShortStyle
             workout!.setEndTime(formatter.stringFromDate(date))
+            
+            pastWorkouts.addObject(workout!)
+
+            var paths : NSArray = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true);
+            var basePath : NSString = paths.objectAtIndex(0) as! NSString
+            NSKeyedArchiver.archiveRootObject(pastWorkouts, toFile: String(basePath) + "work.dat")
         }
     }
     
@@ -98,20 +108,12 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        if (workout!.getName() == "" ) {
-            workout!.setName("No Name")
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         self.oldWorkout.dataSource = self
         self.oldWorkout.delegate = self
-        self.workoutName.delegate = self
-        self.notesTextArea.delegate = self
         
         //set the title to the workout name
         self.title = workout!.getName()
@@ -123,6 +125,7 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         dateText.text = formatter.stringFromDate(date)
         
         workoutNameLabel.addTarget(self, action: "changeName", forControlEvents: UIControlEvents.TouchUpInside)
+        addNotesButton.addTarget(self, action: "addNotes", forControlEvents: UIControlEvents.TouchUpInside)
         
         //style for buttons
         workoutNameLabel.layer.borderWidth = 0.5
@@ -140,19 +143,81 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         finishButton.layer.cornerRadius = 10.0
         finishButton.setTranslatesAutoresizingMaskIntoConstraints(false)
         view.addSubview(finishButton)
-        workoutName.borderStyle = UITextBorderStyle.RoundedRect
+        addNotesButton.layer.borderWidth = 0.5
+        addNotesButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        addNotesButton.layer.cornerRadius = 10.0
+        addNotesButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(addNotesButton)
     }
     
     func changeName() {
-        if ( listOfWorkouts.containsObject(<#anObject: AnyObject#>)) {
         
+        let alertController = UIAlertController(title: nil, message: "Please enter your workout name", preferredStyle: .Alert)
+        //        alert.alertViewStyle = UIAlertViewStyle.PlainTextInput
+        
+        alertController.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = ""
+        })
+        
+        let declineAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) -> Void in
+            self.navigationController?.navigationBarHidden = false
         }
+        let acceptAction = UIAlertAction(title: "Ok", style: .Default) { (_) -> Void in
+            let textField = alertController.textFields![0] as! UITextField
+//            self.workout!.setName(textField.text)
+            
+            
+            //boolean if i found it if not create new workout
+            for w in listOfWorkouts {
+                let vv : WorkoutObject = w as! WorkoutObject
+                if (vv.getName() == textField.text) {
+                    self.workout = vv.newCopy()
+                    createNewWorkout = false
+                    break
+                }
+            }
+            
+            if (createNewWorkout) {
+                listOfWorkouts.addObject(self.workout!.newCopy())
+            } else {
+                createNewWorkout = true
+            }
+            
+            self.navigationController?.navigationBarHidden = false
+            //set the title to the workout name
+            self.title = self.workout!.getName()
+            self.exerciseTable.workout = self.workout
+            self.exerciseTable.tableView.reloadData()
+        }
+        alertController.addAction(declineAction)
+        alertController.addAction(acceptAction)
+
+        presentViewController(alertController, animated: true, completion: nil)
+  
+    }
+    
+    func addNotes() {
         
-        workout!.setName(workoutName.text)
-        self.title = workout!.getName()
-        workoutName.text = ""
-        workoutName.resignFirstResponder()
-        self.navigationController?.navigationBarHidden = false
+        let alertController = UIAlertController(title: nil, message: "Add Notes", preferredStyle: .Alert)
+        //        alert.alertViewStyle = UIAlertViewStyle.PlainTextInput
+        
+        alertController.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = self.workout!.getNotes()
+        })
+        
+        let declineAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) -> Void in
+            self.navigationController?.navigationBarHidden = false
+        }
+        let acceptAction = UIAlertAction(title: "Add Note", style: .Default) { (_) -> Void in
+            let textField = alertController.textFields![0] as! UITextField
+            self.workout!.setNotes(textField.text)
+            println(textField.text)
+            self.navigationController?.navigationBarHidden = false
+        }
+        alertController.addAction(declineAction)
+        alertController.addAction(acceptAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -164,17 +229,5 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if ( textField == workoutName ) {
-            workoutName.resignFirstResponder()
-            changeName()
-            return true
-        } else {
-            self.navigationController?.navigationBarHidden = false
-            notesTextArea.resignFirstResponder()
-            workout!.setNotes(notesTextArea.text)
-            return true
-        }
-    }
 }
 
