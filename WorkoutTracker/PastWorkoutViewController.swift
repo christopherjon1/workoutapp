@@ -92,12 +92,32 @@ class PastWorkoutTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.allowsSelection = false
         tableView.backgroundColor = UIColor.clearColor()
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.separatorColor = UIColor.clearColor()
         
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if ( segue.identifier == "detailedViewSegue" ) {
+            if let destination = segue.destinationViewController as? FinishedViewController {
+                if let index = tableView.indexPathForSelectedRow()?.row {
+                    var work = pastWorkouts[index] as! WorkoutObject
+                    destination.workout = work
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.tableView.reloadData()
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,7 +129,7 @@ class PastWorkoutTableViewController: UITableViewController {
         let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("pastWorkoutCell") as! UITableViewCell
         //exercise at index path
         let w = pastWorkouts[pastWorkouts.count - 1 - indexPath.row] as! WorkoutObject
-        cell.textLabel!.text = w.getName()
+        cell.textLabel!.text = w.getName() + " - Completed : " + w.getDateString()
         return cell
     }
 }

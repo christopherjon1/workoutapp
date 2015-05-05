@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>5D14090D-022A-4142-9723-CC6B78E87C82</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>WorkoutTracker</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>78434936DA415B4741D594C66C3B48C801B82AB3</key>
 		<string>https://github.com/christopherjon1/workoutapp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>WorkoutTracker.xcodeproj/project.xcworkspace</string>
+	<string>WorkoutTracker.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>78434936DA415B4741D594C66C3B48C801B82AB3</key>

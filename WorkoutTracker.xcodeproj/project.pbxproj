@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1EB031D7F70F286C6D2102 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AB03AD538673694DFAC1C7 /* libPods.a */; };
 		8C09976C1AE7518C00D91A86 /* SetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09976B1AE7518C00D91A86 /* SetTableViewController.swift */; };
 		8C09976E1AE7535F00D91A86 /* BodyPartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09976D1AE7535F00D91A86 /* BodyPartTableViewController.swift */; };
 		8C0997701AE75FAB00D91A86 /* Stopwatch Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C09976F1AE75FAB00D91A86 /* Stopwatch Filled-50.png */; };
@@ -23,9 +24,6 @@
 		8C0997891AF09BE500D91A86 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0997881AF09BE500D91A86 /* SettingsViewController.swift */; };
 		8C4F56971AE1B7FC002C490A /* ExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F56961AE1B7FC002C490A /* ExerciseTableViewController.swift */; };
 		8C5209681ADF70010010B8FF /* Home-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C5209671ADF70010010B8FF /* Home-50.png */; };
-		8C5209711ADFF9000010B8FF /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C52096C1ADFF9000010B8FF /* JBBarChartView.m */; };
-		8C5209721ADFF9000010B8FF /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C52096E1ADFF9000010B8FF /* JBChartView.m */; };
-		8C5209731ADFF9000010B8FF /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5209701ADFF9000010B8FF /* JBLineChartView.m */; };
 		8C5209751AE017AC0010B8FF /* Plus-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C5209741AE017AC0010B8FF /* Plus-50.png */; };
 		8C52097B1AE034CD0010B8FF /* images-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C52097A1AE034CD0010B8FF /* images-1.jpg */; };
 		8C92E1641AE6DE3C00C9FC3B /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C92E1631AE6DE3C00C9FC3B /* ExerciseViewController.swift */; };
@@ -76,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16AB03AD538673694DFAC1C7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C09976B1AE7518C00D91A86 /* SetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTableViewController.swift; sourceTree = "<group>"; };
 		8C09976D1AE7535F00D91A86 /* BodyPartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPartTableViewController.swift; sourceTree = "<group>"; };
 		8C09976F1AE75FAB00D91A86 /* Stopwatch Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stopwatch Filled-50.png"; sourceTree = "<group>"; };
@@ -92,14 +91,9 @@
 		8C0997881AF09BE500D91A86 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8C4F56961AE1B7FC002C490A /* ExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewController.swift; sourceTree = "<group>"; };
 		8C5209671ADF70010010B8FF /* Home-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-50.png"; sourceTree = "<group>"; };
-		8C52096B1ADFF9000010B8FF /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
-		8C52096C1ADFF9000010B8FF /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = "<group>"; };
-		8C52096D1ADFF9000010B8FF /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = "<group>"; };
-		8C52096E1ADFF9000010B8FF /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = "<group>"; };
-		8C52096F1ADFF9000010B8FF /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = "<group>"; };
-		8C5209701ADFF9000010B8FF /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
 		8C5209741AE017AC0010B8FF /* Plus-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus-50.png"; sourceTree = "<group>"; };
 		8C52097A1AE034CD0010B8FF /* images-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-1.jpg"; sourceTree = "<group>"; };
+		8C7D74D61AF8841D0097C097 /* BChartView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BChartView-Bridging-Header.h"; sourceTree = "<group>"; };
 		8C92E1631AE6DE3C00C9FC3B /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		8CC8EA221AD34FE100593A61 /* WorkoutTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC8EA261AD34FE100593A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,6 +133,8 @@
 		8CC8EA8A1ADE12A100593A61 /* Leg-50 (1) copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leg-50 (1) copy.png"; sourceTree = "<group>"; };
 		8CC8EA8C1ADE12BE00593A61 /* Flex Biceps-50 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Flex Biceps-50 copy.png"; sourceTree = "<group>"; };
 		8CC8EA8E1ADE210300593A61 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		E28083A747EE431EFBC82FF2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FCCBD70A2248686AD7780AEA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F1EB031D7F70F286C6D2102 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,25 +156,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64F1B75D62ED2C71C96C8837 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16AB03AD538673694DFAC1C7 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DE6E7AAFF347E6213FBEA23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E28083A747EE431EFBC82FF2 /* Pods.debug.xcconfig */,
+				FCCBD70A2248686AD7780AEA /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8C5209691ADFF8E90010B8FF /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				8C52096A1ADFF9000010B8FF /* Classes */,
+				8C7D74D61AF8841D0097C097 /* BChartView-Bridging-Header.h */,
 			);
 			name = Libraries;
-			sourceTree = "<group>";
-		};
-		8C52096A1ADFF9000010B8FF /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				8C52096B1ADFF9000010B8FF /* JBBarChartView.h */,
-				8C52096C1ADFF9000010B8FF /* JBBarChartView.m */,
-				8C52096D1ADFF9000010B8FF /* JBChartView.h */,
-				8C52096E1ADFF9000010B8FF /* JBChartView.m */,
-				8C52096F1ADFF9000010B8FF /* JBLineChartView.h */,
-				8C5209701ADFF9000010B8FF /* JBLineChartView.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		8CC8EA191AD34FE100593A61 = {
@@ -186,6 +187,8 @@
 				8CC8EA241AD34FE100593A61 /* WorkoutTracker */,
 				8CC8EA3A1AD34FE100593A61 /* WorkoutTrackerTests */,
 				8CC8EA231AD34FE100593A61 /* Products */,
+				7DE6E7AAFF347E6213FBEA23 /* Pods */,
+				64F1B75D62ED2C71C96C8837 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,7 +212,6 @@
 				8CC8EA8E1ADE210300593A61 /* WorkoutViewController.swift */,
 				8C4F56961AE1B7FC002C490A /* ExerciseTableViewController.swift */,
 				8C92E1631AE6DE3C00C9FC3B /* ExerciseViewController.swift */,
-				8C09976D1AE7535F00D91A86 /* BodyPartTableViewController.swift */,
 				8C09976B1AE7518C00D91A86 /* SetTableViewController.swift */,
 				8C0997711AE761CC00D91A86 /* RepsPoundsTableViewController.swift */,
 				8C09977C1AEB6CA500D91A86 /* FinishedViewController.swift */,
@@ -217,6 +219,7 @@
 				8C0997801AEEDC8700D91A86 /* CardioViewController.swift */,
 				8C0997841AF031AF00D91A86 /* PastWorkoutViewController.swift */,
 				8C0997861AF09B7900D91A86 /* StatsViewController.swift */,
+				8C09976D1AE7535F00D91A86 /* BodyPartTableViewController.swift */,
 				8C0997881AF09BE500D91A86 /* SettingsViewController.swift */,
 				8CC8EA861ADE0DD100593A61 /* Model.swift */,
 				8CC8EA841ADE0B6600593A61 /* Temp.swift */,
@@ -299,9 +302,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CC8EA411AD34FE100593A61 /* Build configuration list for PBXNativeTarget "WorkoutTracker" */;
 			buildPhases = (
+				CDF93128D437DFF1CC8482ED /* Check Pods Manifest.lock */,
 				8CC8EA1E1AD34FE100593A61 /* Sources */,
 				8CC8EA1F1AD34FE100593A61 /* Frameworks */,
 				8CC8EA201AD34FE100593A61 /* Resources */,
+				B0A1362C4521347EE5E3C6E6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -419,6 +424,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B0A1362C4521347EE5E3C6E6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDF93128D437DFF1CC8482ED /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8CC8EA1E1AD34FE100593A61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -430,8 +468,6 @@
 				8C0997891AF09BE500D91A86 /* SettingsViewController.swift in Sources */,
 				8CC8EA851ADE0B6600593A61 /* Temp.swift in Sources */,
 				8CC8EA8F1ADE210300593A61 /* WorkoutViewController.swift in Sources */,
-				8C5209721ADFF9000010B8FF /* JBChartView.m in Sources */,
-				8C5209711ADFF9000010B8FF /* JBBarChartView.m in Sources */,
 				8C0997871AF09B7900D91A86 /* StatsViewController.swift in Sources */,
 				8C09976C1AE7518C00D91A86 /* SetTableViewController.swift in Sources */,
 				8C0997811AEEDC8700D91A86 /* CardioViewController.swift in Sources */,
@@ -439,7 +475,6 @@
 				8C92E1641AE6DE3C00C9FC3B /* ExerciseViewController.swift in Sources */,
 				8C0997721AE761CC00D91A86 /* RepsPoundsTableViewController.swift in Sources */,
 				8C09977D1AEB6CA500D91A86 /* FinishedViewController.swift in Sources */,
-				8C5209731ADFF9000010B8FF /* JBLineChartView.m in Sources */,
 				8CC8EA281AD34FE100593A61 /* AppDelegate.swift in Sources */,
 				8CC8EA871ADE0DD100593A61 /* Model.swift in Sources */,
 				8C0997851AF031AF00D91A86 /* PastWorkoutViewController.swift in Sources */,
@@ -566,21 +601,37 @@
 		};
 		8CC8EA421AD34FE100593A61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E28083A747EE431EFBC82FF2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WorkoutTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"$(OTHER_LDFLAGS)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WorkoutTracker/BChartView-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 			};
 			name = Debug;
 		};
 		8CC8EA431AD34FE100593A61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCCBD70A2248686AD7780AEA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WorkoutTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"$(OTHER_LDFLAGS)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WorkoutTracker/BChartView-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 			};
 			name = Release;
 		};

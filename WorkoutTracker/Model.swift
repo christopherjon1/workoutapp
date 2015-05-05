@@ -263,6 +263,11 @@ class WorkoutObject: NSObject, NSCoding {
     func getDate() -> NSDate {
         return date
     }
+    func getDateString() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        return formatter.stringFromDate(date)
+    }
     func setStartTime(_time : String) {
         startTime = _time
     }

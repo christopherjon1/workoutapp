@@ -27,7 +27,7 @@ class BodyPartTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("bodyPartCell") as! UITableViewCell
+        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("bodyPartsCell") as! UITableViewCell
         //exercise at index path
         cell.textLabel?.text = getValueOfBodyPartAtIndex(indexPath.row)
         selectedIndex = indexPath.row

@@ -21,6 +21,7 @@ class FinishedViewController: UIViewController {
     @IBOutlet weak var totalWieghtLabel: UILabel!
     @IBOutlet weak var totalSetsLabel: UILabel!
     @IBOutlet weak var totalRepsLabel: UILabel!
+    @IBOutlet weak var notesText: UILabel!
     
     var workout : WorkoutObject!
     var oneRepTable : OneRepMaxTableViewController!
@@ -48,7 +49,7 @@ class FinishedViewController: UIViewController {
         totalWieghtLabel.text = String(workout.getTotalWeight())
         totalSetsLabel.text = String(workout.getTotalSets())
         totalRepsLabel.text = String(workout.getTotalReps())
-        
+        notesText.text = workout.getNotes()
         
         startButton.layer.borderWidth = 0.5
         startButton.layer.borderColor = UIColor.lightGrayColor().CGColor

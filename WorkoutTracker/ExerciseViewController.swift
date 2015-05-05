@@ -225,9 +225,9 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 }
                 
                 if (createNewExercise) {
+                    self.exercise!.setName(textField.text)
                     listOfExercises.addObject(self.exercise!.newCopy())
                 } else {
-                    self.exercise!.setName(textField.text)
                     createNewExercise = true
                 }
                 

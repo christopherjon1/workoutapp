@@ -22,7 +22,7 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var oldExTabCon: UIView!
     
     var workout : WorkoutObject?
-    var oldEx : ExerciseObject?// = listOfExercises[0] as! ExerciseObject
+    var oldEx : ExerciseObject? = listOfExercises[0] as? ExerciseObject
     
     weak var exerciseTable: ExerciseTableViewController!
     weak var oldExerciseTable: OldExerciseTableViewController!
@@ -166,6 +166,8 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             let textField = alertController.textFields![0] as! UITextField
 //            self.workout!.setName(textField.text)
             
+            var startTime = self.workout!.getStartTime()
+            var date = self.workout!.getDate()
             
             //boolean if i found it if not create new workout
             for w in listOfWorkouts {
@@ -178,6 +180,9 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
             
             if (createNewWorkout) {
+                self.workout = WorkoutObject(_name: textField.text)
+                self.workout!.setStartTime(startTime)
+                self.workout!.setDate(date)
                 listOfWorkouts.addObject(self.workout!.newCopy())
             } else {
                 createNewWorkout = true
@@ -211,7 +216,6 @@ class WorkoutViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let acceptAction = UIAlertAction(title: "Add Note", style: .Default) { (_) -> Void in
             let textField = alertController.textFields![0] as! UITextField
             self.workout!.setNotes(textField.text)
-            println(textField.text)
             self.navigationController?.navigationBarHidden = false
         }
         alertController.addAction(declineAction)
