@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if ( exer.getBodyPart() == .Back) { weekBack += exer.getWeightPushed() }
                         if ( exer.getBodyPart() == .Shoulders) { weekShoulders += exer.getWeightPushed() }
                         if ( exer.getBodyPart() == .Arms) { weekArms += exer.getWeightPushed() }
+                        if ( exer.getBodyPart() == .None) { weekOther += exer.getWeightPushed() }
                     }
                 }
                 else if ( pastW.getDate().isGreaterThanDate( currentDateTime.subtractDays(week*2) ) &&
@@ -61,17 +62,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             if ( exer.getBodyPart() == .Back) { preWeekBack += exer.getWeightPushed() }
                             if ( exer.getBodyPart() == .Shoulders) { preWeekShoulders += exer.getWeightPushed() }
                             if ( exer.getBodyPart() == .Arms) { preWeekArms += exer.getWeightPushed() }
+                            if ( exer.getBodyPart() == .None) { preWeekOther += exer.getWeightPushed() }
                         }
                 }
-//                for ex in pastW.exercises {
-//                    var exer = ex as ExerciseObject
-//                    if ( exer.getBodyPart() == .Abs) { preWeekAbs += exer.getWeightPushed() }
-//                    if ( exer.getBodyPart() == .Chest) { preWeekChest += exer.getWeightPushed() }
-//                    if ( exer.getBodyPart() == .Legs) { preWeekLegs += exer.getWeightPushed() }
-//                    if ( exer.getBodyPart() == .Back) { preWeekLegs += exer.getWeightPushed() }
-//                    if ( exer.getBodyPart() == .Shoulders) { preWeekShoulders += exer.getWeightPushed() }
-//                    if ( exer.getBodyPart() == .Arms) { preWeekArms += exer.getWeightPushed() }
-//                }
+                for ex in pastW.exercises {
+                    var exer = ex as ExerciseObject
+                    if ( exer.getBodyPart() == .Abs) { statAbs.append(exer.getWeightPushed()) }
+                    if ( exer.getBodyPart() == .Chest) { statChest.append( exer.getWeightPushed() ) }
+                    if ( exer.getBodyPart() == .Legs) { statLegs.append( exer.getWeightPushed() ) }
+                    if ( exer.getBodyPart() == .Back) { statBack.append( exer.getWeightPushed() ) }
+                    if ( exer.getBodyPart() == .Shoulders) { statShoulders.append( exer.getWeightPushed() ) }
+                    if ( exer.getBodyPart() == .Arms) { statArms.append( exer.getWeightPushed() ) }
+                    if ( exer.getBodyPart() == .None) { statOther.append( exer.getWeightPushed() ) }
+                }
             }
             
             //Get Reminder Date (which is Due date minus 7 days lets say)

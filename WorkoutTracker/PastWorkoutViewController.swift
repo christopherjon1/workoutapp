@@ -104,7 +104,7 @@ class PastWorkoutTableViewController: UITableViewController {
         if ( segue.identifier == "detailedViewSegue" ) {
             if let destination = segue.destinationViewController as? FinishedViewController {
                 if let index = tableView.indexPathForSelectedRow()?.row {
-                    var work = pastWorkouts[index] as! WorkoutObject
+                    var work = pastWorkouts[pastWorkouts.count - 1 - index] as! WorkoutObject
                     destination.workout = work
                 }
             }
@@ -129,7 +129,8 @@ class PastWorkoutTableViewController: UITableViewController {
         let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("pastWorkoutCell") as! UITableViewCell
         //exercise at index path
         let w = pastWorkouts[pastWorkouts.count - 1 - indexPath.row] as! WorkoutObject
-        cell.textLabel!.text = w.getName() + " - Completed : " + w.getDateString()
+        cell.textLabel!.text = w.getName() + "\n" + w.getDateString()
+        cell.textLabel?.center
         return cell
     }
 }

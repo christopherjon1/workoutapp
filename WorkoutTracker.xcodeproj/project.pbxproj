@@ -26,6 +26,7 @@
 		8C5209681ADF70010010B8FF /* Home-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C5209671ADF70010010B8FF /* Home-50.png */; };
 		8C5209751AE017AC0010B8FF /* Plus-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C5209741AE017AC0010B8FF /* Plus-50.png */; };
 		8C52097B1AE034CD0010B8FF /* images-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C52097A1AE034CD0010B8FF /* images-1.jpg */; };
+		8C7D74E11AF94DB40097C097 /* StatsGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7D74E01AF94DB40097C097 /* StatsGraphViewController.swift */; };
 		8C92E1641AE6DE3C00C9FC3B /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C92E1631AE6DE3C00C9FC3B /* ExerciseViewController.swift */; };
 		8CC8EA281AD34FE100593A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8EA271AD34FE100593A61 /* AppDelegate.swift */; };
 		8CC8EA2A1AD34FE100593A61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8EA291AD34FE100593A61 /* ViewController.swift */; };
@@ -94,6 +95,7 @@
 		8C5209741AE017AC0010B8FF /* Plus-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus-50.png"; sourceTree = "<group>"; };
 		8C52097A1AE034CD0010B8FF /* images-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-1.jpg"; sourceTree = "<group>"; };
 		8C7D74D61AF8841D0097C097 /* BChartView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BChartView-Bridging-Header.h"; sourceTree = "<group>"; };
+		8C7D74E01AF94DB40097C097 /* StatsGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsGraphViewController.swift; sourceTree = "<group>"; };
 		8C92E1631AE6DE3C00C9FC3B /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		8CC8EA221AD34FE100593A61 /* WorkoutTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC8EA261AD34FE100593A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				8C0997861AF09B7900D91A86 /* StatsViewController.swift */,
 				8C09976D1AE7535F00D91A86 /* BodyPartTableViewController.swift */,
 				8C0997881AF09BE500D91A86 /* SettingsViewController.swift */,
+				8C7D74E01AF94DB40097C097 /* StatsGraphViewController.swift */,
 				8CC8EA861ADE0DD100593A61 /* Model.swift */,
 				8CC8EA841ADE0B6600593A61 /* Temp.swift */,
 				8C0997791AEB1B1300D91A86 /* Main.storyboard */,
@@ -471,6 +474,7 @@
 				8C0997871AF09B7900D91A86 /* StatsViewController.swift in Sources */,
 				8C09976C1AE7518C00D91A86 /* SetTableViewController.swift in Sources */,
 				8C0997811AEEDC8700D91A86 /* CardioViewController.swift in Sources */,
+				8C7D74E11AF94DB40097C097 /* StatsGraphViewController.swift in Sources */,
 				8C4F56971AE1B7FC002C490A /* ExerciseTableViewController.swift in Sources */,
 				8C92E1641AE6DE3C00C9FC3B /* ExerciseViewController.swift in Sources */,
 				8C0997721AE761CC00D91A86 /* RepsPoundsTableViewController.swift in Sources */,

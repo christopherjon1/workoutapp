@@ -16,41 +16,8 @@ class StatsViewController: UIViewController {//, JBBarChartViewDelegate, JBBarCh
     @IBOutlet weak var statsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
-    weak var workoutView: WorkoutViewController!
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-    }
-//    
-//    func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
-//        println("numberOfBarsInBarChartView");
-//        return 10 //number of lines in chart
-//    }
-//    
-//    func barChartView(barChartView: JBBarChartView, heightForBarViewAtIndex index: UInt) -> CGFloat {
-//        println("barChartView", index);
-//        
-//        return CGFloat(arc4random_uniform(100));
-//    }
-    
-    
     
     override func viewDidLoad() {
-        
-//        var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
-//        label.center = CGPointMake(160, 284)
-//        label.textAlignment = NSTextAlignment.Center
-//        label.text = "I'm a test label"
-//        self.view.addSubview(label)
-//        
-//        let barChartView = JBBarChartView();
-//        barChartView.dataSource = self;
-//        barChartView.delegate = self;
-//        barChartView.backgroundColor = UIColor.darkGrayColor();
-//        barChartView.frame = CGRectMake(0, 20, 320, 200);
-//        barChartView.reloadData();
-//        self.view.addSubview(barChartView);
-//        println("Launched");
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

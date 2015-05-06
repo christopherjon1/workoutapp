@@ -8,15 +8,57 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     //lower buttons
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var workoutButton: UIButton!
     @IBOutlet weak var statsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
+        
+    @IBOutlet weak var picker: UIPickerView!
+    
     
     weak var workoutView: WorkoutViewController!
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
+        return 2
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        if (component == 1) {
+            return 20
+        } else {
+            return 1
+        }
+    }
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        if (component == 1) {
+            return String(row + 1)
+        } else {
+            return "Days in workout \"week\":"
+        }
+    }
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if (component == 1) {
+        week = row + 1
+        }
+    }
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
+        if (component == 1) {
+            let pickerLabel = UILabel()
+            let titleData = String(row + 1)
+            let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+            pickerLabel.attributedText = myTitle
+            return pickerLabel
+        } else {
+            let pickerLabel = UILabel()
+            let titleData = "Days in workout \"week\":"
+            let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 14.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+            pickerLabel.attributedText = myTitle
+            return pickerLabel
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -25,6 +67,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.picker.dataSource = self
+        self.picker.delegate = self
         
         self.navigationController?.hidesBarsWhenKeyboardAppears = false
         self.navigationItem.setHidesBackButton(true, animated: true)

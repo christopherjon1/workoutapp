@@ -67,6 +67,10 @@ func setWeekPart(bp: BodyPart, toAdd: Int){
         weekShoulders += toAdd
     case .Arms:
         weekArms += toAdd
+    case .Cardio:
+        weekCardio += toAdd
+    case .Calories:
+        weekCalories += toAdd
     case .None:
         weekOther += toAdd
     }
@@ -86,6 +90,10 @@ func removeWeekPart(bp: BodyPart, toAdd: Int){
         weekShoulders -= toAdd
     case .Arms:
         weekArms -= toAdd
+    case .Cardio:
+        weekCardio -= toAdd
+    case .Calories:
+        weekCalories -= toAdd
     case .None:
         weekOther -= toAdd
     }
@@ -98,6 +106,7 @@ var statLegs : [Int] = []
 var statBack : [Int] = []
 var statShoulders : [Int] = []
 var statArms : [Int] = []
+var statOther : [Int] = []
 var statCardio : [Int] = []
 var statCalories : [Int] = []
 
@@ -199,6 +208,89 @@ func addTestStuff() {
     listOfExercises.addObject(extentions.newCopy())
     listOfExercises.addObject(squat.newCopy())
     listOfExercises.addObject(lunges.newCopy())
+    
+    //test workout objects.
+    var chest : WorkoutObject = WorkoutObject(_name: "Chest")
+    var bench : ExerciseObject = ExerciseObject(_name: "Bench")
+    var press : ExerciseObject = ExerciseObject(_name: "Dumbell Press")
+    var dips : ExerciseObject = ExerciseObject(_name: "Dips")
+    bench.setBodyPart(.Chest)
+    press.setBodyPart(.Chest)
+        dips.setBodyPart(.Chest)
+    chest.setExercise(bench)
+    chest.setExercise(press)
+    chest.setExercise(dips)
+    var abs : WorkoutObject = WorkoutObject(_name: "Abs")
+    var situps : ExerciseObject = ExerciseObject(_name: "Sit ups")
+    abs.setExercise(situps)
+    
+    listOfWorkouts.addObject(chest.newCopy())
+    listOfWorkouts.addObject(abs.newCopy())
+    listOfExercises.addObject(bench.newCopy())
+    listOfExercises.addObject(press.newCopy())
+    listOfExercises.addObject(dips.newCopy())
+    listOfExercises.addObject(situps.newCopy())
+    
+    var currentDateTime = NSDate()
+    var lastWeek = currentDateTime.subtractDays(7)
+    legs.setDate(lastWeek)
+    legs.setStartTime("9:50")
+    legs.setEndTime("10:30")
+    legs.setNotes("Great Workout")
+    squat.setOneRepMax(100)
+    squat.setReps(30)
+    var s : SetObject = SetObject()
+    s.setReps(10)
+    s.setWeight(100)
+    squat.sets = [s, s, s]
+    lunges.setOneRepMax(80)
+    lunges.setReps(29)
+    lunges.sets = [s, s, s]
+    legs.exercises.append(squat)
+    lastWeek = currentDateTime.subtractDays(6)
+    arms.setDate(lastWeek)
+    arms.setStartTime("8:43")
+    arms.setEndTime("11:30")
+    arms.setNotes("Such a long one")
+    curls.setOneRepMax(60)
+    curls.setReps(50)
+    curls.sets = [s, s, s]
+    extentions.setOneRepMax(75)
+    extentions.setReps(40)
+    extentions.sets = [s, s, s]
+    lastWeek = currentDateTime.subtractDays(5)
+    chest.setDate(lastWeek)
+    chest.setStartTime("9:00")
+    chest.setEndTime("10:11")
+    chest.setNotes("Ugh...")
+    bench.setOneRepMax(120)
+    bench.setReps(15)
+    bench.sets = [s, s, s]
+    press.setOneRepMax(95)
+    press.setReps(32)
+    press.sets = [s, s, s]
+    dips.setOneRepMax(0)
+    dips.setReps(100)
+    dips.sets = [s, s, s]
+    lastWeek = currentDateTime.subtractDays(4)
+    abs.setDate(lastWeek)
+    abs.setStartTime("6:28")
+    abs.setEndTime("7:16")
+    situps.setOneRepMax(100)
+    situps.setReps(30)
+    situps.sets = [s, s, s]
+    pastWorkouts.addObject(legs)
+    pastWorkouts.addObject(arms)
+    pastWorkouts.addObject(chest)
+    pastWorkouts.addObject(abs)
+    
+    statAbs  = [0,1000,1100,1200,1150,1200,1312]
+    statChest  = [0,1021,900,800,790,820,850]
+    statLegs  = [0,1021,1900,1800,1790,1820,1850]
+    statBack  = [0,2100,2210,1800,1710,2220,1850]
+     statShoulders  = [0,2101,2260,1200,1530,2250,1230]
+     statArms  = [0,2121,2262,1222,1532,2252,1232]
+     statOther  = [0,2105,2260,5200,5530,2250,5230]
 }
 
 //----------------------------------------------Objects-------------------------------------------
@@ -444,6 +536,8 @@ enum BodyPart : String {
     case Shoulders = "Shoulders"
     case Arms = "Arms"
     case None = "None"
+    case Cardio = "Cardio"
+    case Calories = "Calories"
     
     static var count: Int { return BodyPart.None.hashValue + 1}
 }
@@ -463,6 +557,10 @@ func getIndexOfBodyPart(Index: BodyPart) -> Int {
         return 5
     case .Arms:
         return 6
+    case .Cardio:
+        return 7
+    case .Calories:
+        return 8
     case .None:
         return 0
     }
@@ -483,6 +581,10 @@ func getValueOfBodyPartAtIndex(Index: Int) -> BodyPart {
         return .Shoulders
     case 6:
         return .Arms
+    case 7:
+        return .Cardio
+    case 8:
+        return .Calories
     default:
         return .None
     }
@@ -505,6 +607,10 @@ func getValueOfBodyPartAtIndex(Index: Int) -> String {
         value = "Shoulders"
     case 6:
         value = "Arms"
+    case 7:
+        value = "Cardio"
+    case 8:
+        value = "Calories"
     default:
         value = "None"
     }
