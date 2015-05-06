@@ -16,6 +16,8 @@ class PastWorkoutViewController: UIViewController {
     @IBOutlet weak var statsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
+    @IBOutlet weak var startNew: UIButton!
+    
     weak var workoutView: WorkoutViewController!
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -47,6 +49,12 @@ class PastWorkoutViewController: UIViewController {
         
         self.navigationController?.hidesBarsWhenKeyboardAppears = false
         self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        startNew.layer.borderWidth = 1.0
+        startNew.layer.borderColor = UIColor.lightGrayColor().CGColor
+        startNew.layer.cornerRadius = 10.0
+        startNew.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(startNew)
         
         startButton.layer.borderWidth = 0.5
         startButton.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -129,8 +137,11 @@ class PastWorkoutTableViewController: UITableViewController {
         let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("pastWorkoutCell") as! UITableViewCell
         //exercise at index path
         let w = pastWorkouts[pastWorkouts.count - 1 - indexPath.row] as! WorkoutObject
+        cell.textLabel!.font = UIFont.systemFontOfSize(14.0)
+        cell.textLabel!.numberOfLines = 0;
+
         cell.textLabel!.text = w.getName() + "\n" + w.getDateString()
-        cell.textLabel?.center
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
 }

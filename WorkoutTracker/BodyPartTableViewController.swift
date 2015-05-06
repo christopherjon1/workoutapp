@@ -44,6 +44,7 @@ class BodyPartTableViewController: UITableViewController {
         let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("bodyPartsCell") as! UITableViewCell
         //exercise at index path
         cell.textLabel?.text = getValueOfBodyPartAtIndex(indexPath.row)
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     

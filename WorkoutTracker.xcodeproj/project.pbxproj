@@ -62,6 +62,7 @@
 		8CC8EA8B1ADE12A100593A61 /* Leg-50 (1) copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA8A1ADE12A100593A61 /* Leg-50 (1) copy.png */; };
 		8CC8EA8D1ADE12BE00593A61 /* Flex Biceps-50 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC8EA8C1ADE12BE00593A61 /* Flex Biceps-50 copy.png */; };
 		8CC8EA8F1ADE210300593A61 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8EA8E1ADE210300593A61 /* WorkoutViewController.swift */; };
+		8CEA2A4C1AF9ACF5008E18B4 /* running.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CEA2A4B1AF9ACF5008E18B4 /* running.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		8CC8EA8A1ADE12A100593A61 /* Leg-50 (1) copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Leg-50 (1) copy.png"; sourceTree = "<group>"; };
 		8CC8EA8C1ADE12BE00593A61 /* Flex Biceps-50 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Flex Biceps-50 copy.png"; sourceTree = "<group>"; };
 		8CC8EA8E1ADE210300593A61 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		8CEA2A4B1AF9ACF5008E18B4 /* running.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = running.jpg; sourceTree = "<group>"; };
 		E28083A747EE431EFBC82FF2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FCCBD70A2248686AD7780AEA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,6 +265,7 @@
 		8CC8EA631ADD66C700593A61 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8CEA2A4B1AF9ACF5008E18B4 /* running.jpg */,
 				8C0997751AE8AD9900D91A86 /* paris.jpg */,
 				8C09976F1AE75FAB00D91A86 /* Stopwatch Filled-50.png */,
 				8C52097A1AE034CD0010B8FF /* images-1.jpg */,
@@ -383,6 +386,7 @@
 				8CC8EA741ADD6F5D00593A61 /* Shoulders-50 (1).png in Resources */,
 				8C52097B1AE034CD0010B8FF /* images-1.jpg in Resources */,
 				8CC8EA601ADD66B900593A61 /* Torso-50.png in Resources */,
+				8CEA2A4C1AF9ACF5008E18B4 /* running.jpg in Resources */,
 				8CC8EA691ADD6F4700593A61 /* Flex Biceps-50.png in Resources */,
 				8CC8EA891ADE10A200593A61 /* Back Muscles-50.png in Resources */,
 				8C0997831AEEE84400D91A86 /* ReadMe in Resources */,

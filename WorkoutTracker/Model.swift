@@ -232,6 +232,8 @@ func addTestStuff() {
     listOfExercises.addObject(situps.newCopy())
     
     var currentDateTime = NSDate()
+
+    
     var lastWeek = currentDateTime.subtractDays(7)
     legs.setDate(lastWeek)
     legs.setStartTime("9:50")
@@ -279,18 +281,19 @@ func addTestStuff() {
     situps.setOneRepMax(100)
     situps.setReps(30)
     situps.sets = [s, s, s]
+    
     pastWorkouts.addObject(legs)
     pastWorkouts.addObject(arms)
     pastWorkouts.addObject(chest)
     pastWorkouts.addObject(abs)
     
-    statAbs  = [0,1000,1100,1200,1150,1200,1312]
-    statChest  = [0,1021,900,800,790,820,850]
-    statLegs  = [0,1021,1900,1800,1790,1820,1850]
-    statBack  = [0,2100,2210,1800,1710,2220,1850]
-     statShoulders  = [0,2101,2260,1200,1530,2250,1230]
-     statArms  = [0,2121,2262,1222,1532,2252,1232]
-     statOther  = [0,2105,2260,5200,5530,2250,5230]
+    statAbs  = [0,1000,1100,1200,1150,1200,1312,0]
+    statChest  = [0,1021,900,800,790,820,850,0]
+    statLegs  = [0,1021,1900,1800,1790,1820,1850,0]
+    statBack  = [0,2100,2210,1800,1710,2220,1850,0]
+     statShoulders  = [0,2101,2260,1200,1530,2250,1230,0]
+     statArms  = [0,2121,2262,1222,1532,2252,1232,0]
+     statOther  = [0,2105,2260,5200,5530,2250,5230,0]
 }
 
 //----------------------------------------------Objects-------------------------------------------

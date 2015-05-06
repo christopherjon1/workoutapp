@@ -52,12 +52,12 @@ class StatsGraphViewController: UIViewController, JBBarChartViewDelegate, JBBarC
     }
     
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
-        return UInt(statChest.count) //number of lines in chart
+        return UInt(statBP.count) //number of lines in chart
     }
     
     func barChartView(barChartView: JBBarChartView, heightForBarViewAtIndex index: UInt) -> CGFloat {
         println("barChartView", index);
-        return CGFloat(statBP[Int(index)] as! NSNumber)
+        return CGFloat(statBP[Int(index)] as! Int)
     }
     
     func barChartView(barChartView: JBBarChartView, didSelectBarAtIndex index: UInt, touchPoint:CGPoint) {

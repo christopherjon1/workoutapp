@@ -55,6 +55,7 @@ class WorkoutNamesTableViewController: UITableViewController {
         var w = listOfWorkouts[indexPath.row] as! WorkoutObject
         cell.textLabel?.text = w.getName()
         cell.textLabel?.textAlignment = NSTextAlignment.Center
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     
