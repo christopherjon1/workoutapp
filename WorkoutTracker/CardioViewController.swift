@@ -17,6 +17,14 @@ class CardioViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     var cardioTime = 1
     var caloriesBurn = 1
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if ( segue.identifier == "cardioToHomeSegue" ) {
             weekCardio += self.cardioTime
@@ -131,10 +139,6 @@ class CardioViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
 }

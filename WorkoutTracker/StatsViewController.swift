@@ -16,6 +16,13 @@ class StatsViewController: UIViewController {//, JBBarChartViewDelegate, JBBarCh
     @IBOutlet weak var statsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
     
     override func viewDidLoad() {
         
@@ -56,10 +63,6 @@ class StatsViewController: UIViewController {//, JBBarChartViewDelegate, JBBarCh
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
 }

@@ -35,6 +35,14 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     weak var exerciseTable: ExerciseTableViewController!
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
+    
     // returns the number of 'columns' to display.
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
         if (pickerView == self.bodyPartLabel){
@@ -283,9 +291,6 @@ class ExerciseViewController: UIViewController, UIPickerViewDataSource, UIPicker
         // Dispose of any resources that can be recreated.
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
     
 }
 

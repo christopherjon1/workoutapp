@@ -26,6 +26,14 @@ class FinishedViewController: UIViewController {
     var workout : WorkoutObject!
     var oneRepTable : OneRepMaxTableViewController!
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if ( segue.identifier == "oneRepSegue" ) {
             oneRepTable = segue.destinationViewController as! OneRepMaxTableViewController
@@ -84,10 +92,6 @@ class FinishedViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
 }

@@ -20,6 +20,14 @@ class PastWorkoutViewController: UIViewController {
     
     weak var workoutView: WorkoutViewController!
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if ( segue.identifier == "createNewWorkoutSegue" ) {
             createNewWorkout = true
@@ -88,11 +96,7 @@ class PastWorkoutViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
-    
+
 }
 
 class PastWorkoutTableViewController: UITableViewController {
